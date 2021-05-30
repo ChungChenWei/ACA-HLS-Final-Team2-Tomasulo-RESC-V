@@ -1,0 +1,10 @@
+# ignore all files
+/*
+
+# white list
+!.gitignore
+!README.md
+!/src
+!directives.tcl
+!script.tcl
+!final-project-hls/
