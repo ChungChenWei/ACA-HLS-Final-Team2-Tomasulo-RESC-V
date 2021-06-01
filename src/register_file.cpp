@@ -1,4 +1,3 @@
-#include "common.hpp"
 #include "register_file.hpp"
 
 Register_file::Register_file () {

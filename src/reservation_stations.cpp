@@ -1,9 +1,6 @@
 #include "reservation_stations.hpp"
 
-Reservation_stations::Reservation_stations (Adders *adders_, Multipliers *multipliers_) {
-	adders = adders_;
-	multipliers = multipliers_;
-}
+Reservation_stations::Reservation_stations () {}
 
 bool Reservation_stations::__get_valid (op_t op_i, int &index_o) {
 	int start, size;
@@ -49,7 +46,7 @@ void Reservation_stations::issue (op_t op, reg_stat_t r1, reg_stat_t r2) {
 	entry[index].r2 = r2;
 }
 
-void Reservation_stations::try_assign_task () {
+void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers) {
 	// TODO
 }
 

@@ -4,7 +4,6 @@
 class Register_file;
 
 #include "common.hpp"
-#include "CDB.hpp"
 
 class Register_file {
 private:

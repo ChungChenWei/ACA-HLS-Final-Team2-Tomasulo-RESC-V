@@ -7,26 +7,26 @@
 #include "issuer.hpp"
 
 void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
-	CDB cdb;
 	Register_file rf;
-	Adders adders {&cdb};
-	Multipliers multipliers {&cdb};
-	Reservation_stations rs {&adders, &multipliers};
-	Issuer issuer {&rf, &rs};
-
-	cdb.register_listeners(&rf, &rs);
+	Adders adders;
+	Multipliers multipliers;
+	Reservation_stations rs;
 
 	int cycle = 0;
 	unsigned PC = 0;
 
 	while (PC < INSTR_MEM_SIZE) {
+#ifndef __SYNTHESIS__
 		std::cout << " # cycle = " << cycle << std::endl;
+#endif
 
-		bool success;
-		issuer.issue(instruction_memory[PC], success);
-		rs.try_assign_task();
+		bool success = true;
+		Issuer::issue(rf, rs, instruction_memory[PC], success);
+		rs.try_assign_task(adders, multipliers);
 
+#ifndef __SYNTHESIS__
 		std::cout << "success = " << success << std::endl;
+#endif
 
 		if (success) PC += 1;
 		cycle += 1;

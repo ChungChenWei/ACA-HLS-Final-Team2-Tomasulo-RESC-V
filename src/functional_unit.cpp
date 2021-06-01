@@ -1,9 +1,7 @@
 #include "functional_unit.hpp"
-#include "common.hpp"
+#include "CDB.hpp"
 
-Adders::Adders (CDB *cdb_) {
-	cdb = cdb_;
-}
+Adders::Adders () {}
 
 bool Adders::get_busy () {
 	for (int i = 0; i < FUNC_UNIT_ADD_NUM; ++i)
@@ -12,7 +10,7 @@ bool Adders::get_busy () {
 	return true;
 }
 
-void Adders::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2) {
+void Adders::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
 	data_t result;
 	switch (op) {
 	case OP_ADD:
@@ -27,18 +25,32 @@ void Adders::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2) {
 		result.int_data = 0;
 	}
 
-	cdb->broadcast(src, result);
+	CDB_broadcast(rf, rs, src, result);
 }
 
-Multipliers::Multipliers (CDB *cdb_) {
-	cdb = cdb_;
-}
+Multipliers::Multipliers () {}
 
 bool Multipliers::get_busy () {
-	// TODO
-	return false;
+	for (int i = 0; i < FUNC_UNIT_MUL_NUM; ++i)
+		if (!busy[i])
+			return false;
+	return true;
 }
 
-void Multipliers::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2) {
-	// TODO
+void Multipliers::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
+	data_t result;
+	switch (op) {
+	case OP_MUL:
+		result.int_data = r1.int_data * r2.int_data;
+		break;
+
+	case OP_DIV:
+		result.int_data = r1.int_data / r2.int_data;
+		break;
+
+	default:
+		result.int_data = 0;
+	}
+
+	CDB_broadcast(rf, rs, src, result);
 }
