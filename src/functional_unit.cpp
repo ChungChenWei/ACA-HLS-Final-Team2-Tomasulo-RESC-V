@@ -10,7 +10,7 @@ bool Adders::get_busy () {
 	return true;
 }
 
-void Adders::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
+void Adders::assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
 	data_t result;
 	switch (op) {
 	case OP_ADD:
@@ -37,7 +37,7 @@ bool Multipliers::get_busy () {
 	return true;
 }
 
-void Multipliers::assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
+void Multipliers::assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
 	data_t result;
 	switch (op) {
 	case OP_MUL:

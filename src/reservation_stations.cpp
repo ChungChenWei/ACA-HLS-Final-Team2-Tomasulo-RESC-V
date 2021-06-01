@@ -2,7 +2,7 @@
 
 Reservation_stations::Reservation_stations () {}
 
-bool Reservation_stations::__get_valid (op_t op_i, int &index_o) {
+bool Reservation_stations::__get_valid (op_enum op_i, int &index_o) {
 	int start, size;
 	switch (op_i) {
 	case OP_ADD:
@@ -32,12 +32,12 @@ bool Reservation_stations::__get_valid (op_t op_i, int &index_o) {
 	return false;
 }
 
-bool Reservation_stations::get_valid (op_t op) {
+bool Reservation_stations::get_valid (op_enum op) {
 	int tmp;
 	return __get_valid(op, tmp);
 }
 
-void Reservation_stations::issue (op_t op, reg_stat_t r1, reg_stat_t r2) {
+void Reservation_stations::issue (op_enum op, reg_stat_t r1, reg_stat_t r2) {
 	int index;
 	__get_valid(op, index);
 	entry[index].valid = false;

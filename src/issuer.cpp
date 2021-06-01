@@ -3,9 +3,9 @@
 #include "issuer.hpp"
 namespace Issuer {
 
-void __decode (Register_file &rf, instr_t instr_i, op_t &op_o, reg_stat_t &rs1_o, reg_stat_t &rs2_o) {
+void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, reg_stat_t &rs1_o, reg_stat_t &rs2_o) {
     // TODO
-    op_o = 0;
+    op_o = OP_ADD;
     rs1_o.stat = REG_STAT_SCALAR;
     rs1_o.value.scalar.int_data = 0;
     rs2_o.stat = REG_STAT_SCALAR;
@@ -13,7 +13,7 @@ void __decode (Register_file &rf, instr_t instr_i, op_t &op_o, reg_stat_t &rs1_o
 }
 
 void issue (Register_file &rf, Reservation_stations &rs, instr_t instr_i, bool &success_o) {
-    op_t op;
+    op_enum op;
     reg_stat_t rs1, rs2;
     __decode(rf, instr_i, op, rs1, rs2);
     if (!rs.get_valid(op)) {

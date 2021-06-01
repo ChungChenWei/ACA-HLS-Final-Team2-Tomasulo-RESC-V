@@ -15,7 +15,7 @@ private:
 public:
 	Adders ();
 	bool get_busy ();
-	void assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+	void assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
 };
 
 class Multipliers {
@@ -25,7 +25,7 @@ private:
 public:
 	Multipliers ();
 	bool get_busy ();
-	void assign_task (res_sta_symbol_t src, op_t op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+	void assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
 };
 
 #endif
