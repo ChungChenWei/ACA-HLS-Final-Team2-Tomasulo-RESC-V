@@ -21,8 +21,11 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 	int rs1_addr = (instr_i >> 15) & 0b11111;
 	int rs2_addr = (instr_i >> 20) & 0b11111;
 
+#ifndef __SYNTHESIS__
+	std::cout << "    rd = " << rd_addr << "\t rs1 = " << rs1_addr << "\t rs2 = " << rs2_addr << std::endl;
+#endif
 	// TODO
-	switch(opcode) {
+	switch (opcode) {
 	case RISCV::OP_R_type:
 		// operation
 		if (funct3 == RISCV::F3_ADD && funct7 == RISCV::F7_ADD) {

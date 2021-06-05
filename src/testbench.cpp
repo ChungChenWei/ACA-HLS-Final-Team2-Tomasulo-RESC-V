@@ -15,7 +15,7 @@ int main () {
 
     RISCV::set_instr(instruction_str, instruction_memory);
 
-    // cpu(instruction_memory);
+    cpu(instruction_memory);
 
     return 0;
 }

@@ -1,11 +1,20 @@
 #ifndef __RISCV_INSTR_HPP__
 #define __RISCV_INSTR_HPP__
 
-#include "common.hpp"
 #include <string>
 #include <iostream>
+#include "common.hpp"
 
 namespace RISCV {
+
+/* RISC-V instruction set
+* [6:0]   opcode
+* [11:7]  rd
+* [14:12] funct3
+* [19:15] rs1
+* [24:20] rs2
+* [31:25] funct7
+*/
 
 // opcode
 const RISCV_code_t OP_R_type = 0b0110011; // 0x0c 0x3
@@ -13,6 +22,8 @@ const RISCV_code_t OP_I_type = 0b0010011; // 0x04 0x3
 const RISCV_code_t OP_S_tpye = 0b0100011; // 0x08 0x3
 const RISCV_code_t OP_L_tpye = 0b0000011; // 0x00 0x3
 const RISCV_code_t OP_B_tpye = 0b1100011; // 0x18 0x3
+
+const RISCV_code_t OP_NULL_tpye = 0b0000000; // self def 0x00 0x0
 
 // rv32i
 // funct3
@@ -69,9 +80,7 @@ const RISCV_code_t F3_DIV = 0b100; // 0x4
 const RISCV_code_t F7_MUL = 0b0000001; // 0x01
 const RISCV_code_t F7_DIV = 0b0000001; // 0x01
 
-void set_instr (std::string instruction_str, instr_t instruction_memory[INSTR_MEM_SIZE]) {
-    std::cout << instruction_str;
-}
+void set_instr (std::string instruction_str, instr_t instruction_memory[INSTR_MEM_SIZE]);
 
-}
+} // namespace RISCV
 #endif

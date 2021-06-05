@@ -11,7 +11,7 @@ union data_t {
 const int REGISTER_NUM = 32;
 
 // instruction memory related
-const int INSTR_MEM_SIZE = 256;
+const int INSTR_MEM_SIZE = 10; // tmp
 typedef uint32_t instr_t;
 typedef uint32_t RISCV_code_t;
 
@@ -28,11 +28,13 @@ struct reg_stat_t {
 		res_sta_symbol_t symbol;
 	} value;
 };
+const char REG_PREFIX = 'x';
 
 // functional unit related
 enum op_enum {
 	OP_NUL,
 	OP_ADD,
+	OP_ADDI,
 	OP_SUB,
 	OP_MUL,
 	OP_DIV,
