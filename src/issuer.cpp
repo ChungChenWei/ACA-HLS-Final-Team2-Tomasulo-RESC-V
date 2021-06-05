@@ -43,7 +43,7 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 		break;
 	case RISCV::OP_I_type:
 		if (funct3 == RISCV::F3_ADDI) {
-			op_o == OP_ADD;
+			op_o = OP_ADD;
 
 			rf.read(rs1_addr, rs1_o);
 			rs2_o.stat = REG_STAT_SCALAR;
