@@ -30,6 +30,7 @@ struct reg_stat_t {
 
 // functional unit related
 enum op_enum {
+	OP_NUL,
 	OP_ADD,
 	OP_SUB,
 	OP_MUL,
