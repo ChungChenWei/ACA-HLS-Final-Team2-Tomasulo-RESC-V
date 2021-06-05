@@ -13,6 +13,7 @@ const int REGISTER_NUM = 32;
 // instruction memory related
 const int INSTR_MEM_SIZE = 256;
 typedef uint32_t instr_t;
+typedef uint32_t RISCV_code_t;
 
 // register status
 typedef int res_sta_symbol_t; // value range: [0, RES_STA_TOTAL_NUM)

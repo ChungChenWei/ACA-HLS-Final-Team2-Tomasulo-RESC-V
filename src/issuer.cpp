@@ -16,7 +16,6 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 	RISCV_code_t opcode = instr_i & 0b1111111;
 	RISCV_code_t funct3 = (instr_i >> 12) & 0b111;
 	RISCV_code_t funct7 = (instr_i >> 25) & 0b1111111;
-	RISCV_code_t funct  = (funct7 << 3) | funct3;
 
 	int rd_addr  = (instr_i >> 7) & 0b11111;
 	int rs1_addr = (instr_i >> 15) & 0b11111;
@@ -24,15 +23,15 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 
 	// TODO
 	switch(opcode) {
-	case OP_R_type:
+	case RISCV::OP_R_type:
 		// operation
-		if (funct3 == F3_ADD && funct7 == F7_ADD) {
+		if (funct3 == RISCV::F3_ADD && funct7 == RISCV::F7_ADD) {
 			op_o = OP_ADD;
-		} else if (funct3 == F3_SUB && funct7 == F7_SUB) {
+		} else if (funct3 == RISCV::F3_SUB && funct7 == RISCV::F7_SUB) {
 			op_o = OP_SUB;
-		} else if (funct3 == F3_MUL && funct7 == F7_MUL) {
+		} else if (funct3 == RISCV::F3_MUL && funct7 == RISCV::F7_MUL) {
 			op_o = OP_MUL;
-		} else if (funct3 == F3_DIV && funct7 == F7_DIV) {
+		} else if (funct3 == RISCV::F3_DIV && funct7 == RISCV::F7_DIV) {
 			op_o = OP_DIV;
 		} else {
 			op_o = OP_NUL;
@@ -40,8 +39,17 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 		// registers
 		rf.read(rs1_addr, rs1_o);
 		rf.read(rs2_addr, rs2_o);
+		rd_index_o = rd_addr;
 		break;
-	case OP_I_type:
+	case RISCV::OP_I_type:
+		if (funct3 == RISCV::F3_ADDI) {
+			op_o == OP_ADD;
+
+			rf.read(rs1_addr, rs1_o);
+			rs2_o.stat = REG_STAT_SCALAR;
+			rs2_o.value.scalar.int_data = (instr_i >> 20) & 0b111111111111;
+			rd_index_o = rd_addr;
+		}
 		break;
 	}
 }

@@ -1,10 +1,11 @@
 #ifndef __RISCV_INSTR_HPP__
 #define __RISCV_INSTR_HPP__
-namespace RISCV {
 
-#include "riscv_code_rv31i.hpp"
-#include "riscv_code_rv31m.hpp"
 #include "common.hpp"
+#include <string>
+#include <iostream>
+
+namespace RISCV {
 
 // opcode
 const RISCV_code_t OP_R_type = 0b0110011; // 0x0c 0x3
@@ -67,6 +68,10 @@ const RISCV_code_t F3_DIV = 0b100; // 0x4
 // funct7
 const RISCV_code_t F7_MUL = 0b0000001; // 0x01
 const RISCV_code_t F7_DIV = 0b0000001; // 0x01
+
+void set_instr (std::string instruction_str, instr_t instruction_memory[INSTR_MEM_SIZE]) {
+    std::cout << instruction_str;
+}
 
 }
 #endif
