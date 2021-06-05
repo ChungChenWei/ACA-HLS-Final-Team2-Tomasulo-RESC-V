@@ -2,7 +2,7 @@
 
 Reservation_stations::Reservation_stations () {}
 
-bool Reservation_stations::__get_valid (op_enum op_i, int &index_o) {
+bool Reservation_stations::get_valid (op_enum op_i, res_sta_symbol_t &sym_o) {
 	int start, size;
 	switch (op_i) {
 	case OP_ADD:
@@ -24,7 +24,7 @@ bool Reservation_stations::__get_valid (op_enum op_i, int &index_o) {
 
 	for (int i = start; i < start + size; ++i) {
 		if (entry[i].valid) {
-			index_o = i;
+			sym_o = i;
 			return true;
 		}
 	}
@@ -32,22 +32,18 @@ bool Reservation_stations::__get_valid (op_enum op_i, int &index_o) {
 	return false;
 }
 
-bool Reservation_stations::get_valid (op_enum op) {
-	int tmp;
-	return __get_valid(op, tmp);
-}
-
-void Reservation_stations::issue (op_enum op, reg_stat_t r1, reg_stat_t r2) {
-	int index;
-	__get_valid(op, index);
-	entry[index].valid = false;
-	entry[index].op = op;
-	entry[index].r1 = r1;
-	entry[index].r2 = r2;
+void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_stat_t r1, reg_stat_t r2) {
+	entry[rd_index].valid = false;
+	entry[rd_index].op = op;
+	entry[rd_index].r1 = r1;
+	entry[rd_index].r2 = r2;
 }
 
 void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers) {
 	// TODO
+	for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
+		// if ready, assign_task
+	}
 }
 
 void Reservation_stations::write_from_CDB (res_sta_symbol_t sym, data_t value) {

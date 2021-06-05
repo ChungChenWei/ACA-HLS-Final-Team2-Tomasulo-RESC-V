@@ -12,7 +12,7 @@ private:
 public:
 	Register_file ();
 	void read (int index, reg_stat_t &reg_o);
-	void write_from_issuer (int index, reg_stat_t reg_i);
+	void write_from_issuer (int index, res_sta_symbol_t reg_i);
 	void write_from_CDB (res_sta_symbol_t sym, data_t value);
 };
 

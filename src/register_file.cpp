@@ -11,8 +11,9 @@ void Register_file::read (int index, reg_stat_t &reg_o) {
     reg_o = reg[index];
 }
 
-void Register_file::write_from_issuer (int index, reg_stat_t reg_i) {
-    reg[index] = reg_i;
+void Register_file::write_from_issuer (int index, res_sta_symbol_t reg_i) {
+    reg[index].stat = REG_STAT_SYMBOL;
+    reg[index].value.symbol = reg_i;
 }
 
 void Register_file::write_from_CDB (res_sta_symbol_t sym, data_t value) {
