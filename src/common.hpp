@@ -15,7 +15,7 @@ const int INSTR_MEM_SIZE = 256;
 typedef uint32_t instr_t;
 
 // register status
-typedef int res_sta_symbol_t;
+typedef int res_sta_symbol_t; // value range: [0, RES_STA_TOTAL_NUM)
 enum reg_stat_enum {
 	REG_STAT_SYMBOL,
 	REG_STAT_SCALAR,

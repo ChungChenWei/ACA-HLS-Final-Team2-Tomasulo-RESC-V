@@ -3,7 +3,8 @@
 #include "issuer.hpp"
 namespace Issuer {
 
-void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, reg_stat_t &rs1_o, reg_stat_t &rs2_o) {
+void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_o, reg_stat_t &rs1_o, reg_stat_t &rs2_o) {
+#pragma HLS inline
     /* RISC-V instruction set
      * [6:0]   opcode
      * [11:7]  rd
@@ -47,13 +48,16 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, reg_stat_t &rs
 
 void issue (Register_file &rf, Reservation_stations &rs, instr_t instr_i, bool &success_o) {
     op_enum op;
+	int rd_index;
     reg_stat_t rs1, rs2;
-    __decode(rf, instr_i, op, rs1, rs2);
-    if (!rs.get_valid(op)) {
+	res_sta_symbol_t rd_sym;
+    __decode(rf, instr_i, op, rd_index, rs1, rs2);
+    if (!rs.get_valid(op, rd_sym)) {
         success_o = false;
         return;
     }
-    rs.issue(op, rs1, rs2);
+    rs.issue(op, rd_sym, rs1, rs2);
+	rf.write_from_issuer(rd_index, rd_sym);
     success_o = true;
 }
 
