@@ -27,8 +27,9 @@ void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
 #ifndef __SYNTHESIS__
 		std::cout << "success = " << success << std::endl;
 #endif
-
-		if (success) PC += 1;
+		// Temporary for debug
+		// if (success) PC += 1;
+		PC += 1;
 		cycle += 1;
 	}
 }
