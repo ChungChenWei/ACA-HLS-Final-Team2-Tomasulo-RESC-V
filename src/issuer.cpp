@@ -25,15 +25,15 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, reg_stat_t &rs
 	switch(opcode) {
 	case OP_R_type:
 		// operation
-		if(funct3 == F3_ADD && funct7 == F7_ADD) { // ADD
+		if (funct3 == F3_ADD && funct7 == F7_ADD) {
 			op_o = OP_ADD;
-		}else if(funct3 == F3_SUB && funct7 == F7_SUB) { // SUB
+		} else if (funct3 == F3_SUB && funct7 == F7_SUB) {
 			op_o = OP_SUB;
-		}else if(funct3 == F3_MUL && funct7 == F7_MUL) { // MUL
+		} else if (funct3 == F3_MUL && funct7 == F7_MUL) {
 			op_o = OP_MUL;
-		}else if(funct3 == F3_DIV && funct7 == F7_DIV) { // DIV
+		} else if (funct3 == F3_DIV && funct7 == F7_DIV) {
 			op_o = OP_DIV;
-		}else { // NULL
+		} else {
 			op_o = OP_NUL;
 		}
 		// registers
