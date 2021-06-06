@@ -7,6 +7,7 @@ bool Reservation_stations::get_valid (op_enum op_i, res_sta_symbol_t &sym_o) {
 	switch (op_i) {
 	case OP_ADD:
 	case OP_SUB:
+	case OP_ADDI:
 		start = RES_STA_ADD_START_INDEX;
 		size = RES_STA_ADD_NUM;
 		break;
@@ -42,6 +43,23 @@ void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_sta
 void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers) {
 	// TODO
 	for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
+		// if both reg ready, checking functional unit
+		if (entry[i].r1.stat == REG_STAT_SCALAR && entry[i].r2.stat == REG_STAT_SCALAR) {
+			switch (entry[i].op) {
+			case OP_ADD:
+			case OP_ADDI:
+			case OP_SUB:
+				if (!adders.get_busy()) {
+					adders.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this)
+				}
+				break;
+			case OP_MUL:
+			case OP_DIV:
+				if (!multipliers.get_busy()) {
+
+				}
+				break;
+		}
 		// if ready, assign_task
 	}
 }
