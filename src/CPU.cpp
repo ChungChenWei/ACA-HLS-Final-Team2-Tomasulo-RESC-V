@@ -22,7 +22,7 @@ void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
 
 		bool success = true;
 		Issuer::issue(rf, rs, instruction_memory[PC], success);
-		rs.try_assign_task(adders, multipliers);
+		rs.try_assign_task(adders, multipliers, rf);
 
 #ifndef __SYNTHESIS__
 		std::cout << "success = " << success << std::endl;

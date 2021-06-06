@@ -40,27 +40,26 @@ void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_sta
 	entry[rd_index].r2 = r2;
 }
 
-void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers) {
+void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers, Register_file &rf) {
 	// TODO
 	for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
-		// if both reg ready, checking functional unit
-		if (entry[i].r1.stat == REG_STAT_SCALAR && entry[i].r2.stat == REG_STAT_SCALAR) {
+		if (!entry[i].valid && entry[i].r1.stat == REG_STAT_SCALAR && entry[i].r2.stat == REG_STAT_SCALAR) {
 			switch (entry[i].op) {
 			case OP_ADD:
 			case OP_ADDI:
 			case OP_SUB:
 				if (!adders.get_busy()) {
-					adders.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this)
+					adders.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
 				}
 				break;
 			case OP_MUL:
 			case OP_DIV:
 				if (!multipliers.get_busy()) {
-
+					multipliers.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
 				}
 				break;
+			}
 		}
-		// if ready, assign_task
 	}
 }
 
