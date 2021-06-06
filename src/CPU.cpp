@@ -25,7 +25,7 @@ void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
 		rs.try_assign_task(adders, multipliers, rf);
 
 #ifndef __SYNTHESIS__
-		std::cout << "success = " << success << std::endl;
+		std::cout << "    success = " << success << std::endl;
 #endif
 		// Temporary for debug
 		// if (success) PC += 1;

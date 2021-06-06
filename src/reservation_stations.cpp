@@ -1,3 +1,4 @@
+#include <iostream>
 #include "reservation_stations.hpp"
 
 Reservation_stations::Reservation_stations () {}
@@ -50,12 +51,20 @@ void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipl
 			case OP_SUB:
 				if (!adders.get_busy()) {
 					adders.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
+					entry[i].valid = true;
+#ifndef __SYNTHESIS__
+					std::cout << "    assign task of entry " << i << " to adder" << std::endl;
+#endif
 				}
 				break;
 			case OP_MUL:
 			case OP_DIV:
 				if (!multipliers.get_busy()) {
 					multipliers.assign_task(i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
+#ifndef __SYNTHESIS__
+					std::cout << "    assign task of entry " << i << " to multiplier" << std::endl;
+#endif
+					entry[i].valid = true;
 				}
 				break;
 			}
