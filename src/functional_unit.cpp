@@ -14,6 +14,7 @@ void Adders::assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2
 	data_t result;
 	switch (op) {
 	case OP_ADD:
+	case OP_ADDI:
 		result.int_data = r1.int_data + r2.int_data;
 		break;
 
