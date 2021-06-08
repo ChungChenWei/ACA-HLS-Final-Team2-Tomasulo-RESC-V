@@ -2,6 +2,7 @@
 #define __COMMON_HPP__
 
 #include <cstdint>
+#include "hls_stream.h"
 
 // CPU related
 union data_t {
@@ -54,5 +55,14 @@ struct res_sta_entry_t {
     reg_stat_t r1;
     reg_stat_t r2;
 };
+struct __res_sta_assign_task_interface_t {
+    res_sta_symbol_t src;
+    op_enum op;
+    data_t r1;
+    data_t r2;
+};
+typedef hls::stream<__res_sta_assign_task_interface_t, 1> res_sta_assign_task_stream_t;
+typedef hls::stream<res_sta_symbol_t, 1> func_unit_finish_task_stream_t;
+
 
 #endif

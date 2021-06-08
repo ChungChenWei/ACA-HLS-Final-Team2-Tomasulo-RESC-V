@@ -13,25 +13,34 @@ bool Adders::get_busy (int &index_o) {
     return true;
 }
 
-void Adders::assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
-// #pragma HLS PIPELINE
+void Adders::run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs) {
+//#pragma HLS PIPELINE
+    if (from_res_sta.empty())
+    	return;
+
+    auto input = from_res_sta.read();
+
+    int index;
+    get_busy(index);
     busy[index] = true;
+
     data_t result;
-    switch (op) {
+    switch (input.op) {
     case OP_ADD:
     case OP_ADDI:
-        result.int_data = r1.int_data + r2.int_data;
+        result.int_data = input.r1.int_data + input.r2.int_data;
         break;
 
     case OP_SUB:
-        result.int_data = r1.int_data - r2.int_data;
+        result.int_data = input.r1.int_data - input.r2.int_data;
         break;
 
     default:
         result.int_data = 0;
     }
 
-    CDB_broadcast(rf, rs, src, result);
+    to_res_sta.write(input.src);
+    CDB_broadcast(rf, rs, input.src, result);
     busy[index] = false;
 }
 
@@ -47,23 +56,32 @@ bool Multipliers::get_busy (int &index_o) {
     return true;
 }
 
-void Multipliers::assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs) {
-// #pragma HLS PIPELINE
+void Multipliers::run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs) {
+//#pragma HLS PIPELINE
+    if (from_res_sta.empty())
+    	return;
+
+    auto input = from_res_sta.read();
+
+    int index;
+    get_busy(index);
     busy[index] = true;
+
     data_t result;
-    switch (op) {
+    switch (input.op) {
     case OP_MUL:
-        result.int_data = r1.int_data * r2.int_data;
+        result.int_data = input.r1.int_data * input.r2.int_data;
         break;
 
-    case OP_DIV:
-        result.int_data = r1.int_data / r2.int_data;
-        break;
+//    case OP_DIV:
+//        result.int_data = input.r1.int_data / input.r2.int_data;
+//        break;
 
     default:
         result.int_data = 0;
     }
 
-    CDB_broadcast(rf, rs, src, result);
+    to_res_sta.write(input.src);
+    CDB_broadcast(rf, rs, input.src, result);
     busy[index] = false;
 }

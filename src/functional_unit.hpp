@@ -15,7 +15,7 @@ private:
 public:
     Adders ();
     bool get_busy (int &index_o);
-    void assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs);
 };
 
 class Multipliers {
@@ -25,7 +25,7 @@ private:
 public:
     Multipliers ();
     bool get_busy (int &index_o);
-    void assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs);
 };
 
 #endif

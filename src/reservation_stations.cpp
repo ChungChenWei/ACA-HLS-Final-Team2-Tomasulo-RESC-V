@@ -52,8 +52,17 @@ void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_sta
     entry[rd_index].r2 = r2;
 }
 
-void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers, Register_file &rf) {
+void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers, res_sta_assign_task_stream_t &to_adder, func_unit_finish_task_stream_t &from_adder, res_sta_assign_task_stream_t &to_multiplier, func_unit_finish_task_stream_t &from_multiplier) {
 #pragma HLS ARRAY_PARTITION variable=entry complete dim=1
+
+	if (!from_adder.empty()) {
+        res_sta_symbol_t i = from_adder.read();
+        entry[i].valid = true;
+	}
+	if (!from_multiplier.empty()) {
+        res_sta_symbol_t i = from_multiplier.read();
+        entry[i].valid = true;
+	}
 
     for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
 #pragma HLS UNROLL
@@ -64,8 +73,7 @@ void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipl
             case OP_ADDI:
             case OP_SUB:
                 if (!adders.get_busy(index)) {
-                    adders.assign_task(index, i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
-                    entry[i].valid = true;
+                    to_adder.write({i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
 #ifndef __SYNTHESIS__
                     std::cout << "    assign task of entry " << i << " to adder" << std::endl;
 #endif
@@ -75,11 +83,10 @@ void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipl
             case OP_MUL:
             case OP_DIV:
                 if (!multipliers.get_busy(index)) {
-                    multipliers.assign_task(index, i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar, rf, *this);
+                    to_multiplier.write({i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
 #ifndef __SYNTHESIS__
                     std::cout << "    assign task of entry " << i << " to multiplier" << std::endl;
 #endif
-                    entry[i].valid = true;
                 }
                 break;
 

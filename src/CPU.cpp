@@ -11,6 +11,8 @@ void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
     Adders adders;
     Multipliers multipliers;
     Reservation_stations rs;
+    res_sta_assign_task_stream_t res_sta_to_adder("stream_to_adder"), res_sta_to_multiplier("stream_to_multiplier");
+    func_unit_finish_task_stream_t res_sta_from_adder("stream_from_adder"), res_sta_from_multiplier("stream_from_multiplier");
 
     int cycle = 0;
     unsigned PC = 0;
@@ -22,7 +24,9 @@ void cpu (instr_t instruction_memory[INSTR_MEM_SIZE]) {
 
         bool success = true;
         Issuer::issue(rf, rs, instruction_memory[PC], success);
-        rs.try_assign_task(adders, multipliers, rf);
+        rs.try_assign_task(adders, multipliers,res_sta_to_adder, res_sta_from_adder, res_sta_to_multiplier, res_sta_from_multiplier);
+        adders.run_task(res_sta_to_adder, res_sta_from_adder, rf, rs);
+        multipliers.run_task(res_sta_to_multiplier, res_sta_from_multiplier, rf, rs);
 
 #ifndef __SYNTHESIS__
         std::cout << "    success = " << success << std::endl;
