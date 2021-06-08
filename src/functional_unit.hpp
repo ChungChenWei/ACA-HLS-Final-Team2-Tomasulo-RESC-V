@@ -1,21 +1,36 @@
 #ifndef __FUNCTIONAL_UNIT_HPP__
 #define __FUNCTIONAL_UNIT_HPP__
 
-class Adders;
-class Multipliers;
-
 #include "common.hpp"
-#include "register_file.hpp"
-#include "reservation_stations.hpp"
 
-class Adders {
+class Adders_status {
 private:
     bool busy[FUNC_UNIT_ADD_NUM];
 
 public:
-    Adders ();
+    Adders_status ();
     bool get_busy (int &index_o);
-    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs);
+    void set_busy (int index);
+    void unset_busy (int index);
+    void print_debug ();
+};
+
+class Adders {
+public:
+    Adders ();
+    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta);
+};
+
+class Multipliers_status {
+private:
+    bool busy[FUNC_UNIT_MUL_NUM];
+
+public:
+    Multipliers_status ();
+    bool get_busy (int &index_o);
+    void set_busy (int index);
+    void unset_busy (int index);
+    void print_debug ();
 };
 
 class Multipliers {
@@ -24,8 +39,7 @@ private:
 
 public:
     Multipliers ();
-    bool get_busy (int &index_o);
-    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta, Register_file &rf, Reservation_stations &rs);
+    void run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta);
 };
 
 #endif

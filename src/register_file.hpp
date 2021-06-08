@@ -14,6 +14,7 @@ public:
     void read (int index, reg_stat_t &reg_o);
     void write_from_issuer (int index, res_sta_symbol_t reg_i);
     void write_from_CDB (res_sta_symbol_t sym, data_t value);
+    void get_final_status (data_t final_register_file_o[REGISTER_NUM]);
 };
 
 #endif

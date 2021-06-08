@@ -28,3 +28,9 @@ void Register_file::write_from_CDB (res_sta_symbol_t sym, data_t value) {
         }
     }
 }
+
+void Register_file::get_final_status (data_t final_register_file_o[REGISTER_NUM]) {
+    for (int i = 0; i < REGISTER_NUM; ++i) {
+        final_register_file_o[i] = reg[i].value.scalar;
+    }
+}

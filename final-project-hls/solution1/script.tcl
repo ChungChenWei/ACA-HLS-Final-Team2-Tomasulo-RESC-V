@@ -27,5 +27,5 @@ create_clock -period 5 -name default
 source "./final-project-hls/solution1/directives.tcl"
 csim_design
 csynth_design
-cosim_design
+cosim_design -trace_level port
 export_design -format ip_catalog

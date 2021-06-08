@@ -5,6 +5,7 @@
 #include "hls_stream.h"
 
 // CPU related
+const int MAX_CYCLE_NUM = 100;
 union data_t {
     uint32_t int_data; // TODO
     float float_data; // TODO: use ap_fixed
@@ -12,7 +13,7 @@ union data_t {
 const int REGISTER_NUM = 32;
 
 // instruction memory related
-const int INSTR_MEM_SIZE = 10; // tmp
+const int INSTR_MEM_SIZE = 16; // tmp
 typedef uint32_t instr_t;
 typedef uint32_t RISCV_code_t;
 
@@ -51,18 +52,24 @@ const int RES_STA_MUL_START_INDEX = RES_STA_ADD_START_INDEX + RES_STA_ADD_NUM;
 const int RES_STA_TOTAL_NUM = RES_STA_ADD_NUM + RES_STA_MUL_NUM;
 struct res_sta_entry_t {
     bool valid;
+    int assigned_func_unit_index;
     op_enum op;
     reg_stat_t r1;
     reg_stat_t r2;
 };
 struct __res_sta_assign_task_interface_t {
+    int func_unit_index;
     res_sta_symbol_t src;
     op_enum op;
     data_t r1;
     data_t r2;
 };
 typedef hls::stream<__res_sta_assign_task_interface_t, 1> res_sta_assign_task_stream_t;
-typedef hls::stream<res_sta_symbol_t, 1> func_unit_finish_task_stream_t;
+struct __func_unit_finish_task_interface_t {
+    res_sta_symbol_t src;
+    data_t value;
+};
+typedef hls::stream<__func_unit_finish_task_interface_t, 1> func_unit_finish_task_stream_t;
 
 
 #endif

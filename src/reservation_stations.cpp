@@ -52,17 +52,16 @@ void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_sta
     entry[rd_index].r2 = r2;
 }
 
-void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipliers, res_sta_assign_task_stream_t &to_adder, func_unit_finish_task_stream_t &from_adder, res_sta_assign_task_stream_t &to_multiplier, func_unit_finish_task_stream_t &from_multiplier) {
+void Reservation_stations::try_assign_task (res_sta_assign_task_stream_t &to_adder, res_sta_assign_task_stream_t &to_multiplier) {
 #pragma HLS ARRAY_PARTITION variable=entry complete dim=1
 
-	if (!from_adder.empty()) {
-        res_sta_symbol_t i = from_adder.read();
-        entry[i].valid = true;
-	}
-	if (!from_multiplier.empty()) {
-        res_sta_symbol_t i = from_multiplier.read();
-        entry[i].valid = true;
-	}
+    // // debug
+    // std::cout << "    valid: ";
+    // for (int i = 0; i < RES_STA_TOTAL_NUM; ++i)
+    //     std::cout << entry[i].valid;
+    // std::cout << std::endl;
+    // adders_status.print_debug();
+    // multipliers_status.print_debug();
 
     for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
 #pragma HLS UNROLL
@@ -72,20 +71,24 @@ void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipl
             case OP_ADD:
             case OP_ADDI:
             case OP_SUB:
-                if (!adders.get_busy(index)) {
-                    to_adder.write({i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
+                if (!adders_status.get_busy(index)) {
+                    adders_status.set_busy(index);
+                    entry[i].assigned_func_unit_index = index;
+                    to_adder.write({index, i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
 #ifndef __SYNTHESIS__
-                    std::cout << "    assign task of entry " << i << " to adder" << std::endl;
+                    std::cout << "    assign task of entry " << i << " to adder " << index << std::endl;
 #endif
                 }
                 break;
 
             case OP_MUL:
             case OP_DIV:
-                if (!multipliers.get_busy(index)) {
-                    to_multiplier.write({i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
+                if (!multipliers_status.get_busy(index)) {
+                    multipliers_status.set_busy(index);
+                    entry[i].assigned_func_unit_index = index;
+                    to_multiplier.write({index, i, entry[i].op, entry[i].r1.value.scalar, entry[i].r2.value.scalar});
 #ifndef __SYNTHESIS__
-                    std::cout << "    assign task of entry " << i << " to multiplier" << std::endl;
+                    std::cout << "    assign task of entry " << i << " to multiplier " << index << std::endl;
 #endif
                 }
                 break;
@@ -99,6 +102,14 @@ void Reservation_stations::try_assign_task (Adders &adders, Multipliers &multipl
 }
 
 void Reservation_stations::write_from_CDB (res_sta_symbol_t sym, data_t value) {
+    if (RES_STA_ADD_START_INDEX <= sym && sym < RES_STA_ADD_START_INDEX + RES_STA_ADD_NUM) {
+        adders_status.unset_busy(entry[sym].assigned_func_unit_index);
+    }
+    if (RES_STA_MUL_START_INDEX <= sym && sym < RES_STA_MUL_START_INDEX + RES_STA_MUL_NUM) {
+        multipliers_status.unset_busy(entry[sym].assigned_func_unit_index);
+    }
+    entry[sym].valid = true;
+
     for (int i = 0; i < RES_STA_TOTAL_NUM; ++i) {
 #pragma HLS UNROLL
         if (entry[i].r1.stat == REG_STAT_SYMBOL && entry[i].r1.value.symbol == sym) {

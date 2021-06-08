@@ -84,7 +84,7 @@ void set_instr (std::string instruction_str, instr_t instruction_memory[INSTR_ME
     int immediate;
     op_enum opcode;
 
-    while ((pos_line = instruction_str.find(line_del)) != std::string::npos) {
+    while (instr_cnt < INSTR_MEM_SIZE && (pos_line = instruction_str.find(line_del)) != std::string::npos) {
         cmdline = instruction_str.substr(0, pos_line);
         instruction_str.erase(0, pos_line + line_del.length());
 
