@@ -25,7 +25,7 @@ void instr_gen (op_enum &ope, int rd, int rs1, int rs2, instr_t &instr) {
     RISCV_code_t F7;
     RISCV_code_t F3;
     RISCV_code_t OP;
-    
+
     switch (ope) {
         case OP_ADD:
             OP = OP_R_type;
@@ -66,7 +66,7 @@ void instr_gen (op_enum &ope, int rd, int rs1, int rs2, instr_t &instr) {
             instr = 0;
             break;
     }
-    
+
 }
 
 
@@ -83,7 +83,7 @@ void set_instr (std::string instruction_str, instr_t instruction_memory[INSTR_ME
     int rs2_addr;
     int immediate;
     op_enum opcode;
-    
+
     while ((pos_line = instruction_str.find(line_del)) != std::string::npos) {
         cmdline = instruction_str.substr(0, pos_line);
         instruction_str.erase(0, pos_line + line_del.length());

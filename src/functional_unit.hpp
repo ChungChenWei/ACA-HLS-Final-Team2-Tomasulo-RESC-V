@@ -10,22 +10,22 @@ class Multipliers;
 
 class Adders {
 private:
-	bool busy[FUNC_UNIT_ADD_NUM];
+    bool busy[FUNC_UNIT_ADD_NUM];
 
 public:
-	Adders ();
-	bool get_busy ();
-	void assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+    Adders ();
+    bool get_busy (int &index_o);
+    void assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
 };
 
 class Multipliers {
 private:
-	bool busy[FUNC_UNIT_MUL_NUM];
+    bool busy[FUNC_UNIT_MUL_NUM];
 
 public:
-	Multipliers ();
-	bool get_busy ();
-	void assign_task (res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
+    Multipliers ();
+    bool get_busy (int &index_o);
+    void assign_task (int index, res_sta_symbol_t src, op_enum op, data_t r1, data_t r2, Register_file &rf, Reservation_stations &rs);
 };
 
 #endif

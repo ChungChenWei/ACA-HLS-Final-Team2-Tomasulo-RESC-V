@@ -19,11 +19,11 @@ add_files src/register_file.hpp
 add_files src/reservation_stations.cpp
 add_files src/reservation_stations.hpp
 add_files src/riscv_instr.hpp
-add_files -tb src/testbench.cpp
+add_files -tb src/testbench.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
-set_part {xc7z020clg400-1}
+set_part {xc7z020-clg400-1}
 create_clock -period 5 -name default
-#source "./final-project-hls/solution1/directives.tcl"
+source "./final-project-hls/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
