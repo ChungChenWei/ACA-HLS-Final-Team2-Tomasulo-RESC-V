@@ -123,9 +123,9 @@ architecture behav of cpu is
     signal cycle_1_reg_1614 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal and_ln47_fu_1239_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal add_ln60_fu_1250_p2 : STD_LOGIC_VECTOR (4 downto 0);
-    signal add_ln60_reg_1627 : STD_LOGIC_VECTOR (4 downto 0);
+    signal and_ln48_fu_1239_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal add_ln61_fu_1250_p2 : STD_LOGIC_VECTOR (4 downto 0);
+    signal add_ln61_reg_1627 : STD_LOGIC_VECTOR (4 downto 0);
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal ap_CS_fsm_state28 : STD_LOGIC;
@@ -325,11 +325,11 @@ architecture behav of cpu is
     signal front_end_to_multiplier_read : STD_LOGIC;
     signal front_end_to_multiplier_full_n : STD_LOGIC;
     signal front_end_to_multiplier_write : STD_LOGIC;
-    signal zext_ln53_fu_1245_p1 : STD_LOGIC_VECTOR (63 downto 0);
+    signal zext_ln54_fu_1245_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal i_cast_fu_1609_p1 : STD_LOGIC_VECTOR (63 downto 0);
     signal tmp_3_fu_1219_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal icmp_ln47_1_fu_1233_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal xor_ln47_fu_1227_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln48_fu_1233_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal xor_ln48_fu_1227_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal tmp_fu_1539_p33 : STD_LOGIC_VECTOR (4 downto 0);
     signal ap_idle_pp1 : STD_LOGIC;
     signal ap_enable_pp1 : STD_LOGIC;
@@ -1729,8 +1729,8 @@ begin
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv1_1 = and_ln47_fu_1239_p2))) then
-                add_ln60_reg_1627 <= add_ln60_fu_1250_p2;
+            if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv1_1 = and_ln48_fu_1239_p2))) then
+                add_ln61_reg_1627 <= add_ln61_fu_1250_p2;
             end if;
         end if;
     end process;
@@ -1759,7 +1759,7 @@ begin
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, and_ln47_fu_1239_p2, ap_enable_reg_pp1_iter0, icmp_ln33_fu_1529_p2, ap_block_pp1_stage0_subdone)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, and_ln48_fu_1239_p2, ap_enable_reg_pp1_iter0, icmp_ln33_fu_1529_p2, ap_block_pp1_stage0_subdone)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -1769,7 +1769,7 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv1_1 = and_ln47_fu_1239_p2))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_lv1_1 = and_ln48_fu_1239_p2))) then
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state29;
@@ -1843,11 +1843,11 @@ begin
         end case;
     end process;
     PC_1_fu_1516_p3 <= 
-        add_ln60_reg_1627 when (grp_every_cycle_fu_995_ap_return_0(0) = '1') else 
+        add_ln61_reg_1627 when (grp_every_cycle_fu_995_ap_return_0(0) = '1') else 
         PC_reg_971;
     add_ln33_fu_1523_p2 <= std_logic_vector(unsigned(ap_phi_mux_i_phi_fu_987_p4) + unsigned(ap_const_lv6_1));
-    add_ln60_fu_1250_p2 <= std_logic_vector(unsigned(PC_reg_971) + unsigned(ap_const_lv5_1));
-    and_ln47_fu_1239_p2 <= (xor_ln47_fu_1227_p2 and icmp_ln47_1_fu_1233_p2);
+    add_ln61_fu_1250_p2 <= std_logic_vector(unsigned(PC_reg_971) + unsigned(ap_const_lv5_1));
+    and_ln48_fu_1239_p2 <= (xor_ln48_fu_1227_p2 and icmp_ln48_fu_1233_p2);
     ap_CS_fsm_pp1_stage0 <= ap_CS_fsm(29);
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state14 <= ap_CS_fsm(13);
@@ -2011,8 +2011,8 @@ begin
     grp_every_cycle_fu_995_ap_start <= grp_every_cycle_fu_995_ap_start_reg;
     i_cast_fu_1609_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(i_reg_983),64));
     icmp_ln33_fu_1529_p2 <= "1" when (ap_phi_mux_i_phi_fu_987_p4 = ap_const_lv6_20) else "0";
-    icmp_ln47_1_fu_1233_p2 <= "1" when (signed(cycle_reg_960) < signed(ap_const_lv32_64)) else "0";
-    instruction_memory_i_address0 <= zext_ln53_fu_1245_p1(4 - 1 downto 0);
+    icmp_ln48_fu_1233_p2 <= "1" when (signed(cycle_reg_960) < signed(ap_const_lv32_64)) else "0";
+    instruction_memory_i_address0 <= zext_ln54_fu_1245_p1(4 - 1 downto 0);
 
     instruction_memory_i_ce0_assign_proc : process(ap_CS_fsm_state2)
     begin
@@ -2025,6 +2025,6 @@ begin
 
     tmp_3_fu_1219_p3 <= PC_reg_971(4 downto 4);
     tmp_fu_1539_p33 <= ap_phi_mux_i_phi_fu_987_p4(5 - 1 downto 0);
-    xor_ln47_fu_1227_p2 <= (tmp_3_fu_1219_p3 xor ap_const_lv1_1);
-    zext_ln53_fu_1245_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(PC_reg_971),64));
+    xor_ln48_fu_1227_p2 <= (tmp_3_fu_1219_p3 xor ap_const_lv1_1);
+    zext_ln54_fu_1245_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(PC_reg_971),64));
 end behav;

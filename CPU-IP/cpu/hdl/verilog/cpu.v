@@ -108,9 +108,9 @@ reg   [5:0] i_reg_983;
 wire   [31:0] cycle_1_fu_1213_p2;
 reg   [31:0] cycle_1_reg_1614;
 wire    ap_CS_fsm_state2;
-wire   [0:0] and_ln47_fu_1239_p2;
-wire   [4:0] add_ln60_fu_1250_p2;
-reg   [4:0] add_ln60_reg_1627;
+wire   [0:0] and_ln48_fu_1239_p2;
+wire   [4:0] add_ln61_fu_1250_p2;
+reg   [4:0] add_ln61_reg_1627;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state28;
 wire   [4:0] PC_1_fu_1516_p3;
@@ -297,11 +297,11 @@ wire    front_end_to_multiplier_empty_n;
 reg    front_end_to_multiplier_read;
 wire    front_end_to_multiplier_full_n;
 reg    front_end_to_multiplier_write;
-wire   [63:0] zext_ln53_fu_1245_p1;
+wire   [63:0] zext_ln54_fu_1245_p1;
 wire   [63:0] i_cast_fu_1609_p1;
 wire   [0:0] tmp_3_fu_1219_p3;
-wire   [0:0] icmp_ln47_1_fu_1233_p2;
-wire   [0:0] xor_ln47_fu_1227_p2;
+wire   [0:0] icmp_ln48_fu_1233_p2;
+wire   [0:0] xor_ln48_fu_1227_p2;
 wire   [4:0] tmp_fu_1539_p33;
 reg    ap_idle_pp1;
 wire    ap_enable_pp1;
@@ -1196,8 +1196,8 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == and_ln47_fu_1239_p2))) begin
-        add_ln60_reg_1627 <= add_ln60_fu_1250_p2;
+    if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == and_ln48_fu_1239_p2))) begin
+        add_ln61_reg_1627 <= add_ln61_fu_1250_p2;
     end
 end
 
@@ -1341,7 +1341,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == and_ln47_fu_1239_p2))) begin
+            if (((1'b1 == ap_CS_fsm_state2) & (1'd1 == and_ln48_fu_1239_p2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state29;
@@ -1446,13 +1446,13 @@ always @ (*) begin
     endcase
 end
 
-assign PC_1_fu_1516_p3 = ((grp_every_cycle_fu_995_ap_return_0[0:0] == 1'b1) ? add_ln60_reg_1627 : PC_reg_971);
+assign PC_1_fu_1516_p3 = ((grp_every_cycle_fu_995_ap_return_0[0:0] == 1'b1) ? add_ln61_reg_1627 : PC_reg_971);
 
 assign add_ln33_fu_1523_p2 = (ap_phi_mux_i_phi_fu_987_p4 + 6'd1);
 
-assign add_ln60_fu_1250_p2 = (PC_reg_971 + 5'd1);
+assign add_ln61_fu_1250_p2 = (PC_reg_971 + 5'd1);
 
-assign and_ln47_fu_1239_p2 = (xor_ln47_fu_1227_p2 & icmp_ln47_1_fu_1233_p2);
+assign and_ln48_fu_1239_p2 = (xor_ln48_fu_1227_p2 & icmp_ln48_fu_1233_p2);
 
 assign ap_CS_fsm_pp1_stage0 = ap_CS_fsm[32'd29];
 
@@ -1512,16 +1512,16 @@ assign i_cast_fu_1609_p1 = i_reg_983;
 
 assign icmp_ln33_fu_1529_p2 = ((ap_phi_mux_i_phi_fu_987_p4 == 6'd32) ? 1'b1 : 1'b0);
 
-assign icmp_ln47_1_fu_1233_p2 = (($signed(cycle_reg_960) < $signed(32'd100)) ? 1'b1 : 1'b0);
+assign icmp_ln48_fu_1233_p2 = (($signed(cycle_reg_960) < $signed(32'd100)) ? 1'b1 : 1'b0);
 
-assign instruction_memory_i_address0 = zext_ln53_fu_1245_p1;
+assign instruction_memory_i_address0 = zext_ln54_fu_1245_p1;
 
 assign tmp_3_fu_1219_p3 = PC_reg_971[32'd4];
 
 assign tmp_fu_1539_p33 = ap_phi_mux_i_phi_fu_987_p4[4:0];
 
-assign xor_ln47_fu_1227_p2 = (tmp_3_fu_1219_p3 ^ 1'd1);
+assign xor_ln48_fu_1227_p2 = (tmp_3_fu_1219_p3 ^ 1'd1);
 
-assign zext_ln53_fu_1245_p1 = PC_reg_971;
+assign zext_ln54_fu_1245_p1 = PC_reg_971;
 
 endmodule //cpu

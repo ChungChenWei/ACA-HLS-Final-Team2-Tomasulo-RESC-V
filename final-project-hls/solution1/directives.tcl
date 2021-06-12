@@ -6,4 +6,3 @@
 set_directive_top -name cpu "cpu"
 set_directive_interface -mode s_axilite "cpu" instruction_memory_i
 set_directive_interface -mode s_axilite "cpu" final_register_file_o
-set_directive_interface -mode s_axilite "cpu"
