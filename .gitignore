@@ -14,6 +14,7 @@ final-project-hls/solution*/*
 !final-project-hls/solution*/script.tcl
 !CPU-IP
 !bit
+!host
 # black list
 *.out
 .vscode/
