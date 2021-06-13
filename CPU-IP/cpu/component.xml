@@ -540,7 +540,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0a657e36</spirit:value>
+            <spirit:value>4446d2b3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -556,7 +556,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e6c9c4a9</spirit:value>
+            <spirit:value>3435ced8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -572,7 +572,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d32283d4</spirit:value>
+            <spirit:value>607c555b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -588,7 +588,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0ce80445</spirit:value>
+            <spirit:value>fd6dfa0f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -987,7 +987,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cpu_mul_32s_32s_32_7_1.v</spirit:name>
+        <spirit:name>hdl/verilog/cpu_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1043,7 +1043,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/cpu_mul_32s_32s_32_7_1.v</spirit:name>
+        <spirit:name>hdl/verilog/cpu_mul_32s_32s_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1106,7 +1106,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cpu_mul_32s_32s_32_7_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cpu_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1132,7 +1132,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/cpu.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_6d5fa7d3</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_2113c56e</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1163,7 +1163,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/cpu_mul_32s_32s_32_7_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/cpu_mul_32s_32s_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1273,7 +1273,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>clk_period</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.clk_period" spirit:order="2">5</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.clk_period" spirit:order="2">12</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>machine</spirit:name>
@@ -1302,8 +1302,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Cpu</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2106130346</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-06-12T19:46:58Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2106132019</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-06-13T12:20:22Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -1313,10 +1313,10 @@
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="42ba0a63"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="4752552a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="84b5fc90"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b0bc9ba7"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="a76662b5"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="78d1c0d1"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="f23abe87"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="93c732ec"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
