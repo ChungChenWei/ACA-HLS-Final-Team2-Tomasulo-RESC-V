@@ -39,8 +39,8 @@ void every_cycle (instr_t instruction_i, bool &success_o, Register_file &rf) {
 }
 
 void cpu (instr_t instruction_memory_i[INSTR_MEM_SIZE], data_t final_register_file_o[REGISTER_NUM]) {
-#pragma HLS INTERFACE s_axilite port=return register
-    Register_file rf;
+#pragma HLS INTERFACE s_axilite port=return
+	Register_file rf;
 
     int cycle = 0;
     unsigned PC = 0;

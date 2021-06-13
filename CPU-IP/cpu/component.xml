@@ -1302,8 +1302,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Cpu</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2106122348</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-06-12T15:49:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2106130346</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-06-12T19:46:58Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
