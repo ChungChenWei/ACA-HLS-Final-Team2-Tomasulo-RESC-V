@@ -4,6 +4,7 @@
 # white list
 !.gitignore
 !README.md
+!vivado.md
 !/src
 !final-project-hls/
 final-project-hls/*
