@@ -53,6 +53,7 @@ void Reservation_stations::issue (op_enum op, res_sta_symbol_t rd_index, reg_sta
 }
 
 void Reservation_stations::try_assign_task (res_sta_assign_task_stream_t &to_adder, res_sta_assign_task_stream_t &to_multiplier) {
+#pragma HLS INLINE
 #pragma HLS ARRAY_PARTITION variable=entry complete dim=1
 
     // // debug

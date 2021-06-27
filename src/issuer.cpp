@@ -69,6 +69,7 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
 }
 
 void issue (Register_file &rf, Reservation_stations &rs, instr_t instr_i, bool &success_o) {
+#pragma HLS INLINE
     op_enum op;
     int rd_index;
     reg_stat_t rs1, rs2;
