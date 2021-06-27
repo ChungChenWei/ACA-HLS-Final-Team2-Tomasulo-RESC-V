@@ -33,32 +33,46 @@ void Adders_status::print_debug () {
     std::cout << std::endl;
 }
 
-Adders::Adders () {}
+Adders::Adders () {
+    for (int i = 0; i < FUNC_UNIT_ADD_NUM; ++i) {
+        counter[i] = 0;
+        busy[i] = 0;
+    }
+}
 
-void Adders::run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta) {
+void Adders::every_cycle (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta) {
 //#pragma HLS PIPELINE
-    if (from_res_sta.empty())
-    	return;
+    if (!from_res_sta.empty()){
+        auto input = from_res_sta.read();
+        int index = input.func_unit_index;
+        busy[index] = true;
 
-    auto input = from_res_sta.read();
+        result[index].src = input.src;
+        switch (input.op) {
+        case OP_ADD:
+        case OP_ADDI:
+            result[index].value.int_data = input.r1.int_data + input.r2.int_data;
+            break;
 
-    __func_unit_finish_task_interface_t result;
-    result.src = input.src;
-    switch (input.op) {
-    case OP_ADD:
-    case OP_ADDI:
-        result.value.int_data = input.r1.int_data + input.r2.int_data;
-        break;
+        case OP_SUB:
+            result[index].value.int_data = input.r1.int_data - input.r2.int_data;
+            break;
 
-    case OP_SUB:
-        result.value.int_data = input.r1.int_data - input.r2.int_data;
-        break;
-
-    default:
-        result.value.int_data = 0;
+        default:
+            result[index].value.int_data = 0;
+        }
     }
 
-    to_res_sta.write(result); // CDB.write()
+    for (int i = 0; i < FUNC_UNIT_ADD_NUM; ++i) {
+        if (busy[i]) {
+            counter[i] += 1;
+            if (counter[i] == FUNC_UNIT_ADD_DURATION) {
+                counter[i] = 0;
+                to_res_sta.write(result[i]); // CDB.write()
+                busy[i] = false;
+            }
+        }
+    }
 }
 
 Multipliers_status::Multipliers_status () {
@@ -92,29 +106,39 @@ void Multipliers_status::print_debug () {
     std::cout << std::endl;
 }
 
-Multipliers::Multipliers () {}
+Multipliers::Multipliers () {
+    for (int i = 0; i < FUNC_UNIT_MUL_NUM; ++i) {
+        counter[i] = 0;
+        busy[i] = 0;
+    }
+}
 
-void Multipliers::run_task (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta) {
+void Multipliers::every_cycle (res_sta_assign_task_stream_t &from_res_sta, func_unit_finish_task_stream_t &to_res_sta) {
 //#pragma HLS PIPELINE
-    if (from_res_sta.empty())
-    	return;
+    if (!from_res_sta.empty()) {
+        auto input = from_res_sta.read();
+        int index = input.func_unit_index;
+        busy[index] = true;
 
-    auto input = from_res_sta.read();
+        result[index].src = input.src;
+        switch (input.op) {
+        case OP_MUL:
+            result[index].value.int_data = input.r1.int_data * input.r2.int_data;
+            break;
 
-    __func_unit_finish_task_interface_t result;
-    result.src = input.src;
-    switch (input.op) {
-    case OP_MUL:
-        result.value.int_data = input.r1.int_data * input.r2.int_data;
-        break;
-
-    // case OP_DIV:
-    //     result.value.int_data = input.r1.int_data / input.r2.int_data;
-    //     break;
-
-    default:
-        result.value.int_data = 0;
+        default:
+            result[index].value.int_data = 0;
+        }
     }
 
-    to_res_sta.write(result); // CDB.write()
+    for (int i = 0; i < FUNC_UNIT_MUL_NUM; ++i) {
+        if (busy[i]) {
+            counter[i] += 1;
+            if (counter[i] == FUNC_UNIT_MUL_DURATION) {
+                counter[i] = 0;
+                to_res_sta.write(result[i]); // CDB.write()
+                busy[i] = false;
+            }
+        }
+    }
 }

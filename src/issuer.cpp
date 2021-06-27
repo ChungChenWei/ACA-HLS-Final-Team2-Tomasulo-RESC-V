@@ -28,17 +28,27 @@ void __decode (Register_file &rf, instr_t instr_i, op_enum &op_o, int &rd_index_
     switch (opcode) {
     case RISCV::OP_R_type:
         // operation
-        if (funct3 == RISCV::F3_ADD && funct7 == RISCV::F7_ADD) {
+        switch (funct3 | (funct7 << 3)) {
+        case (RISCV::F3_ADD | (RISCV::F7_ADD << 3)):
             op_o = OP_ADD;
-        } else if (funct3 == RISCV::F3_SUB && funct7 == RISCV::F7_SUB) {
+            break;
+
+        case (RISCV::F3_SUB | (RISCV::F7_SUB << 3)):
             op_o = OP_SUB;
-        } else if (funct3 == RISCV::F3_MUL && funct7 == RISCV::F7_MUL) {
+            break;
+
+        case (RISCV::F3_MUL | (RISCV::F7_MUL << 3)):
             op_o = OP_MUL;
-        } else if (funct3 == RISCV::F3_DIV && funct7 == RISCV::F7_DIV) {
+            break;
+
+        case (RISCV::F3_DIV | (RISCV::F7_DIV << 3)):
             op_o = OP_DIV;
-        } else {
+            break;
+
+        default:
             op_o = OP_NUL;
         }
+
         // registers
         rf.read(rs1_addr, rs1_o);
         rf.read(rs2_addr, rs2_o);

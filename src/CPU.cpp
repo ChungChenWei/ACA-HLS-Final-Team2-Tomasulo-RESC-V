@@ -13,13 +13,13 @@ void front_end (instr_t instruction_i, bool &success_o, Register_file &rf, func_
         auto tmp = from_adder.read();
         rs.write_from_CDB(tmp.src, tmp.value);
         rf.write_from_CDB(tmp.src, tmp.value);
-        std::cout << "    from_adder.read(), tmp = {" << tmp.src << ", " << tmp.value.int_data << "}" << std::endl;
+        std::cout << "    adder finish task, entry = " << tmp.src << ", data = " << tmp.value.int_data << std::endl;
 	}
 	if (!from_multiplier.empty()) {
         auto tmp = from_multiplier.read();
         rs.write_from_CDB(tmp.src, tmp.value);
         rf.write_from_CDB(tmp.src, tmp.value);
-        std::cout << "    from_multiplier.read(), tmp = {" << tmp.src << ", " << tmp.value.int_data << "}" << std::endl;
+        std::cout << "    multiplier finish task, entry = " << tmp.src << ", data = " << tmp.value.int_data << std::endl;
 	}
 
     Issuer::issue(rf, rs, instruction_i, success_o);
@@ -34,8 +34,8 @@ void every_cycle (instr_t instruction_i, bool &success_o, Register_file &rf) {
 
     // dataflow optimization
     front_end(instruction_i, success_o, rf, adder_to_front_end, multiplier_to_frontend, front_end_to_adder, front_end_to_multiplier);
-    adders.run_task(front_end_to_adder, adder_to_front_end);
-    multipliers.run_task(front_end_to_multiplier, multiplier_to_frontend);
+    adders.every_cycle(front_end_to_adder, adder_to_front_end);
+    multipliers.every_cycle(front_end_to_multiplier, multiplier_to_frontend);
 }
 
 void cpu (instr_t instruction_memory_i[INSTR_MEM_SIZE], data_t final_register_file_o[REGISTER_NUM]) {

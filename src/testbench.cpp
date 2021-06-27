@@ -10,17 +10,14 @@ int main () {
     ADDI x2, x2, 20\
     MUL x1, x1, x2\
     MUL x2, x2, x2\
-    ADDI x3, x3, 10\
-    ADDI x4, x4, 20\
-    ADDI x5, x5, 30\
-    ADDI x6, x6, 40\
-    ADDI x7, x7, 50\
-    ADDI x8, x8, 60\
-    ADDI x9, x9, 70\
-    ADDI x10, x10, 80\
-    ADDI x11, x11, 90\
-    ADDI x12, x12, 100\
-    ADDI x13, x13, 110\
+    ADDI x3, x2, 10\
+    MUL x4, x3, x1\
+    ADD x5, x4, x4\
+    ADDI x6, x6, 5\
+    ADDI x7, x7, 6\
+    MUL x8, x7, x6\
+    MUL x9, x7, x6\
+    MUL x10, x7, x6\
     ";
 
     instr_t instruction_memory[INSTR_MEM_SIZE] = {0};

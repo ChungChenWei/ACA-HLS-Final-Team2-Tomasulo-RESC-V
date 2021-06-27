@@ -5,7 +5,7 @@
 #include "hls_stream.h"
 
 // CPU related
-const int MAX_CYCLE_NUM = 20;
+const int MAX_CYCLE_NUM = 40;
 union data_t {
     uint32_t int_data; // TODO
     float float_data; // TODO: use ap_fixed
@@ -43,6 +43,8 @@ enum op_enum {
 };
 const int FUNC_UNIT_ADD_NUM = 1;
 const int FUNC_UNIT_MUL_NUM = 1;
+const int FUNC_UNIT_ADD_DURATION = 1;
+const int FUNC_UNIT_MUL_DURATION = 3;
 
 // reservation stations related
 const int RES_STA_ADD_NUM = 3;
