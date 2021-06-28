@@ -2,20 +2,26 @@
 /*
 
 # white list
+## required
 !.gitignore
 !README.md
+!build
+!docs
+!src
+!data
+!impl_result
+!tests
+!LICENSE
+
+## project share
 !vivado.md
-!/src
 !final-project-hls/
-final-project-hls/*
 !final-project-hls/solution*
-final-project-hls/solution*/*
 !final-project-hls/solution*/directives.tcl
 !final-project-hls/solution*/script.tcl
-!CPU-IP
-!bit
-!host
 # black list
 *.out
 .vscode/
+final-project-hls/solution*/*
+final-project-hls/*
 
