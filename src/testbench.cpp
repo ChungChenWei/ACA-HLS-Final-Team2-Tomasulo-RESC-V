@@ -19,6 +19,7 @@ int main () {
     MUL x9, x7, x6\
     MUL x10, x7, x6\
     ";
+    data_t correct_final_register_file[REGISTER_NUM] = {0, 200, 400, 410, 82000, 164000, 5, 6, 30, 30, 30, 0};
 
     instr_t instruction_memory[INSTR_MEM_SIZE] = {0};
     data_t final_register_file[REGISTER_NUM];
@@ -33,6 +34,11 @@ int main () {
                   << "x" << i+1 << " = " << final_register_file[i+1].int_data << " , "
                   << "x" << i+2 << " = " << final_register_file[i+2].int_data << " , "
                   << "x" << i+3 << " = " << final_register_file[i+3].int_data << std::endl;
+    }
+
+    for (int i = 0; i < REGISTER_NUM; ++i) {
+        if (final_register_file[i].int_data != correct_final_register_file[i].int_data)
+            return 1;
     }
 
     return 0;
