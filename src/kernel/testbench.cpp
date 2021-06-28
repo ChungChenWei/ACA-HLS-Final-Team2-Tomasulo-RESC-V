@@ -18,6 +18,7 @@ int main () {
     MUL x8, x7, x6\
     MUL x9, x7, x6\
     MUL x10, x7, x6\
+    ADDI x0, x0, 3\
     ";
     data_t correct_final_register_file[REGISTER_NUM] = {0, 200, 400, 410, 82000, 164000, 5, 6, 30, 30, 30, 0};
 

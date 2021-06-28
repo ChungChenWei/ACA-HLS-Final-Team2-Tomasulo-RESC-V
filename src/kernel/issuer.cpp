@@ -75,6 +75,11 @@ void issue (Register_file &rf, Reservation_stations &rs, instr_t instr_i, bool &
     reg_stat_t rs1, rs2;
     res_sta_symbol_t rd_sym;
     __decode(rf, instr_i, op, rd_index, rs1, rs2);
+    if (rd_index == 0) {
+        // does nothing if rd is x0
+        success_o = true;
+        return;
+    }
     if (!rs.get_valid(op, rd_sym)) {
         success_o = false;
         return;
