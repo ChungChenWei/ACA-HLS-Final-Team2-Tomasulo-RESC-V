@@ -1,6 +1,5 @@
 #include <iostream>
 #include "common.hpp"
-#include "CDB.hpp"
 #include "register_file.hpp"
 #include "functional_unit.hpp"
 #include "reservation_stations.hpp"

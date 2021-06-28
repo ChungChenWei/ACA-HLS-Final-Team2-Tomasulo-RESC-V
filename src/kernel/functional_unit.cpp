@@ -1,6 +1,5 @@
 #include <iostream>
 #include "functional_unit.hpp"
-#include "CDB.hpp"
 
 Adders_status::Adders_status () {
     for (int i = 0; i < FUNC_UNIT_ADD_NUM; ++i) {
