@@ -40,7 +40,7 @@ end;
 architecture behav of cpu is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "cpu_cpu,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=15.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=10.530000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=11609,HLS_SYN_LUT=27624,HLS_VERSION=2020_2}";
+    "cpu_cpu,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=15.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=10.530000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=10181,HLS_SYN_LUT=24892,HLS_VERSION=2020_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (5 downto 0) := "000001";
@@ -889,7 +889,7 @@ begin
         ap_return_31 => grp_every_cycle_fu_694_ap_return_31,
         ap_return_32 => grp_every_cycle_fu_694_ap_return_32);
 
-    mux_325_32_1_1_U438 : component cpu_mux_325_32_1_1
+    mux_325_32_1_1_U435 : component cpu_mux_325_32_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,

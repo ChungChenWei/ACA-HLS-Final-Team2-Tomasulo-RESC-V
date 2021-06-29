@@ -459,11 +459,11 @@ reg   [0:0] multipliers_busy_0;
 reg    adder_to_front_end_o_blk_n;
 wire    ap_CS_fsm_state4;
 wire   [0:0] ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8;
-wire   [0:0] icmp_ln69_fu_1071_p2;
+wire   [0:0] icmp_ln68_fu_1071_p2;
 reg    multiplier_to_frontend_o_blk_n;
 wire    ap_CS_fsm_state6;
 wire   [0:0] ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6;
-wire   [0:0] icmp_ln137_fu_1189_p2;
+wire   [0:0] icmp_ln136_fu_1189_p2;
 reg    front_end_to_adder_i_blk_n;
 wire    ap_CS_fsm_state3;
 wire   [0:0] tmp_nbreadreq_fu_480_p3;
@@ -622,10 +622,10 @@ reg    ap_block_state4;
 reg   [0:0] ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6;
 reg   [0:0] ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6;
 reg   [31:0] ap_phi_mux_adders_counter_new_0_phi_fu_603_p6;
-wire   [31:0] add_ln68_fu_1064_p2;
+wire   [31:0] add_ln67_fu_1064_p2;
 reg   [0:0] multipliers_busy_0_flag_0_reg_613;
 wire    ap_CS_fsm_state5;
-wire   [0:0] icmp_ln124_fu_1156_p2;
+wire   [0:0] icmp_ln123_fu_1156_p2;
 reg   [0:0] multipliers_busy_0_loc_0_reg_629;
 reg   [0:0] ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6;
 reg    ap_predicate_op112_write_state6;
@@ -633,11 +633,11 @@ reg    ap_block_state6;
 reg   [0:0] ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6;
 reg   [0:0] ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6;
 reg   [31:0] ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6;
-wire   [31:0] add_ln136_fu_1182_p2;
+wire   [31:0] add_ln135_fu_1182_p2;
 reg    grp_front_end_fu_698_ap_start_reg;
-wire   [31:0] sub_ln58_fu_1030_p2;
-wire   [31:0] add_ln54_fu_1042_p2;
-wire   [31:0] mul_ln126_fu_1168_p2;
+wire   [31:0] sub_ln57_fu_1030_p2;
+wire   [31:0] add_ln53_fu_1042_p2;
+wire   [31:0] mul_ln125_fu_1168_p2;
 wire   [31:0] tmp_r1_fu_1004_p4;
 wire   [31:0] tmp_r2_fu_1014_p4;
 wire   [31:0] input_op_1_fu_1120_p4;
@@ -882,10 +882,10 @@ cpu_mul_32s_32s_32_1_1 #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-mul_32s_32s_32_1_1_U367(
+mul_32s_32s_32_1_1_U364(
     .din0(tmp_r1_1_reg_1443),
     .din1(tmp_r2_1_reg_1448),
-    .dout(mul_ln126_fu_1168_p2)
+    .dout(mul_ln125_fu_1168_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -929,9 +929,9 @@ always @ (posedge ap_clk) begin
         if ((1'b1 == ap_condition_606)) begin
             adders_result_value_0 <= 32'd0;
         end else if ((1'b1 == ap_condition_613)) begin
-            adders_result_value_0 <= add_ln54_fu_1042_p2;
+            adders_result_value_0 <= add_ln53_fu_1042_p2;
         end else if (((input_op_fu_994_p4 == 32'd3) & (tmp_nbreadreq_fu_480_p3 == 1'd1))) begin
-            adders_result_value_0 <= sub_ln58_fu_1030_p2;
+            adders_result_value_0 <= sub_ln57_fu_1030_p2;
         end
     end
 end
@@ -939,7 +939,7 @@ end
 always @ (posedge ap_clk) begin
     if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (tmp_3_nbreadreq_fu_501_p3 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
         multipliers_busy_0_flag_0_reg_613 <= 1'd0;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln124_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4)))) begin
+    end else if (((1'b1 == ap_CS_fsm_state5) | (~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln123_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4)))) begin
         multipliers_busy_0_flag_0_reg_613 <= 1'd1;
     end
 end
@@ -947,16 +947,16 @@ end
 always @ (posedge ap_clk) begin
     if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (tmp_3_nbreadreq_fu_501_p3 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
         multipliers_busy_0_loc_0_reg_629 <= multipliers_busy_0;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln124_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4)))) begin
+    end else if (((1'b1 == ap_CS_fsm_state5) | (~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln123_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4)))) begin
         multipliers_busy_0_loc_0_reg_629 <= 1'd1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln124_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+    if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln123_fu_1156_p2 == 1'd0) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
         multipliers_result_value_0 <= 32'd0;
     end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        multipliers_result_value_0 <= mul_ln126_fu_1168_p2;
+        multipliers_result_value_0 <= mul_ln125_fu_1168_p2;
     end
 end
 
@@ -1042,7 +1042,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln69_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
+    if (((icmp_ln68_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
         adder_to_front_end_o_blk_n = adder_to_front_end_full_n;
     end else begin
         adder_to_front_end_o_blk_n = 1'b1;
@@ -1082,9 +1082,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 == 1'd0) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln69_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
+    if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 == 1'd0) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln68_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
         ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 = adders_busy_0_flag_0_reg_522;
-    end else if (((icmp_ln69_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
+    end else if (((icmp_ln68_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 = 1'd1;
     end else begin
         ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 = 'bx;
@@ -1092,9 +1092,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 == 1'd0) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln69_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
+    if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 == 1'd0) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln68_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
         ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 = 1'd1;
-    end else if (((icmp_ln69_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
+    end else if (((icmp_ln68_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 = 1'd0;
     end else begin
         ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 = 'bx;
@@ -1104,7 +1104,7 @@ end
 always @ (*) begin
     if (((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 = 1'd0;
-    end else if ((((icmp_ln69_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln69_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
+    end else if ((((icmp_ln68_fu_1071_p2 == 1'd0) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)) | ((icmp_ln68_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4)))) begin
         ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 = 1'd1;
     end else begin
         ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 = 'bx;
@@ -1113,9 +1113,9 @@ end
 
 always @ (*) begin
     if (((1'd1 == adders_busy_0_loc_0_reg_541) & (1'b1 == ap_CS_fsm_state4))) begin
-        if ((icmp_ln69_fu_1071_p2 == 1'd0)) begin
-            ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 = add_ln68_fu_1064_p2;
-        end else if ((icmp_ln69_fu_1071_p2 == 1'd1)) begin
+        if ((icmp_ln68_fu_1071_p2 == 1'd0)) begin
+            ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 = add_ln67_fu_1064_p2;
+        end else if ((icmp_ln68_fu_1071_p2 == 1'd1)) begin
             ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 = 32'd0;
         end else begin
             ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 = 'bx;
@@ -1126,9 +1126,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 == 1'd0) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln137_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
+    if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 == 1'd0) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln136_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
         ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 = multipliers_busy_0_flag_0_reg_613;
-    end else if (((icmp_ln137_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
+    end else if (((icmp_ln136_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
         ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 = 1'd1;
     end else begin
         ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 = 'bx;
@@ -1136,9 +1136,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 == 1'd0) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln137_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
+    if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 == 1'd0) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln136_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
         ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 = 1'd1;
-    end else if (((icmp_ln137_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
+    end else if (((icmp_ln136_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
         ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 = 1'd0;
     end else begin
         ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 = 'bx;
@@ -1148,7 +1148,7 @@ end
 always @ (*) begin
     if (((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
         ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 = 1'd0;
-    end else if ((((icmp_ln137_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln137_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
+    end else if ((((icmp_ln136_fu_1189_p2 == 1'd0) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)) | ((icmp_ln136_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6)))) begin
         ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 = 1'd1;
     end else begin
         ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 = 'bx;
@@ -1157,9 +1157,9 @@ end
 
 always @ (*) begin
     if (((multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
-        if ((icmp_ln137_fu_1189_p2 == 1'd0)) begin
-            ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 = add_ln136_fu_1182_p2;
-        end else if ((icmp_ln137_fu_1189_p2 == 1'd1)) begin
+        if ((icmp_ln136_fu_1189_p2 == 1'd0)) begin
+            ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 = add_ln135_fu_1182_p2;
+        end else if ((icmp_ln136_fu_1189_p2 == 1'd1)) begin
             ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 = 32'd0;
         end else begin
             ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 = 'bx;
@@ -1226,7 +1226,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln137_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
+    if (((icmp_ln136_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
         multiplier_to_frontend_o_blk_n = multiplier_to_frontend_full_n;
     end else begin
         multiplier_to_frontend_o_blk_n = 1'b1;
@@ -1529,9 +1529,9 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state4 : begin
-            if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln124_fu_1156_p2 == 1'd1) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+            if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (icmp_ln123_fu_1156_p2 == 1'd1) & (tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
-            end else if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (1'b1 == ap_CS_fsm_state4) & ((icmp_ln124_fu_1156_p2 == 1'd0) | (tmp_3_nbreadreq_fu_501_p3 == 1'd0)))) begin
+            end else if ((~(((ap_predicate_op74_write_state4 == 1'b1) & (1'b0 == adder_to_front_end_full_n)) | ((tmp_3_nbreadreq_fu_501_p3 == 1'd1) & (front_end_to_multiplier_empty_n == 1'b0))) & (1'b1 == ap_CS_fsm_state4) & ((icmp_ln123_fu_1156_p2 == 1'd0) | (tmp_3_nbreadreq_fu_501_p3 == 1'd0)))) begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
@@ -1553,11 +1553,11 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln136_fu_1182_p2 = (multipliers_counter + 32'd1);
+assign add_ln135_fu_1182_p2 = (multipliers_counter + 32'd1);
 
-assign add_ln54_fu_1042_p2 = (tmp_r1_fu_1004_p4 + tmp_r2_fu_1014_p4);
+assign add_ln53_fu_1042_p2 = (tmp_r1_fu_1004_p4 + tmp_r2_fu_1014_p4);
 
-assign add_ln68_fu_1064_p2 = (adders_counter + 32'd1);
+assign add_ln67_fu_1064_p2 = (adders_counter + 32'd1);
 
 assign adder_to_front_end_din = {{adders_result_value_0}, {adders_result_src_0}};
 
@@ -1602,11 +1602,11 @@ assign ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = adders_busy_0_loc_0_reg_54
 assign ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = multipliers_busy_0_loc_0_reg_629;
 
 always @ (*) begin
-    ap_predicate_op112_write_state6 = ((icmp_ln137_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1));
+    ap_predicate_op112_write_state6 = ((icmp_ln136_fu_1189_p2 == 1'd1) & (multipliers_busy_0_loc_0_reg_629 == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op74_write_state4 = ((icmp_ln69_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541));
+    ap_predicate_op74_write_state4 = ((icmp_ln68_fu_1071_p2 == 1'd1) & (1'd1 == adders_busy_0_loc_0_reg_541));
 end
 
 assign ap_return_0 = call_ret1_reg_1421_0;
@@ -1681,11 +1681,11 @@ assign front_end_to_multiplier_din = grp_front_end_fu_698_front_end_to_multiplie
 
 assign grp_front_end_fu_698_ap_start = grp_front_end_fu_698_ap_start_reg;
 
-assign icmp_ln124_fu_1156_p2 = ((input_op_1_fu_1120_p4 == 32'd4) ? 1'b1 : 1'b0);
+assign icmp_ln123_fu_1156_p2 = ((input_op_1_fu_1120_p4 == 32'd4) ? 1'b1 : 1'b0);
 
-assign icmp_ln137_fu_1189_p2 = ((add_ln136_fu_1182_p2 == 32'd3) ? 1'b1 : 1'b0);
+assign icmp_ln136_fu_1189_p2 = ((add_ln135_fu_1182_p2 == 32'd3) ? 1'b1 : 1'b0);
 
-assign icmp_ln69_fu_1071_p2 = ((adders_counter == 32'd0) ? 1'b1 : 1'b0);
+assign icmp_ln68_fu_1071_p2 = ((adders_counter == 32'd0) ? 1'b1 : 1'b0);
 
 assign input_op_1_fu_1120_p4 = {{front_end_to_multiplier_dout[95:64]}};
 
@@ -1757,7 +1757,7 @@ assign rf_reg_stat_8_constprop_o_ap_vld = grp_front_end_fu_698_rf_reg_stat_8_con
 
 assign rf_reg_stat_9_constprop_o_ap_vld = grp_front_end_fu_698_rf_reg_stat_9_constprop_o_ap_vld;
 
-assign sub_ln58_fu_1030_p2 = (tmp_r1_fu_1004_p4 - tmp_r2_fu_1014_p4);
+assign sub_ln57_fu_1030_p2 = (tmp_r1_fu_1004_p4 - tmp_r2_fu_1014_p4);
 
 assign tmp_3_nbreadreq_fu_501_p3 = front_end_to_multiplier_empty_n;
 

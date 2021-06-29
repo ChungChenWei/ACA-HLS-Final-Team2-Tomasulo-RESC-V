@@ -251,12 +251,12 @@ attribute shreg_extract : string;
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
     signal ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 : STD_LOGIC_VECTOR (0 downto 0);
-    signal icmp_ln69_fu_1071_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln68_fu_1071_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal multiplier_to_frontend_o_blk_n : STD_LOGIC;
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
     signal ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 : STD_LOGIC_VECTOR (0 downto 0);
-    signal icmp_ln137_fu_1189_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln136_fu_1189_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal front_end_to_adder_i_blk_n : STD_LOGIC;
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
@@ -417,11 +417,11 @@ attribute shreg_extract : string;
     signal ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 : STD_LOGIC_VECTOR (31 downto 0);
-    signal add_ln68_fu_1064_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal add_ln67_fu_1064_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal multipliers_busy_0_flag_0_reg_613 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_CS_fsm_state5 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
-    signal icmp_ln124_fu_1156_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln123_fu_1156_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal multipliers_busy_0_loc_0_reg_629 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_predicate_op112_write_state6 : BOOLEAN;
@@ -429,11 +429,11 @@ attribute shreg_extract : string;
     signal ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 : STD_LOGIC_VECTOR (31 downto 0);
-    signal add_ln136_fu_1182_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal add_ln135_fu_1182_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal grp_front_end_fu_698_ap_start_reg : STD_LOGIC := '0';
-    signal sub_ln58_fu_1030_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal add_ln54_fu_1042_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal mul_ln126_fu_1168_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal sub_ln57_fu_1030_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal add_ln53_fu_1042_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal mul_ln125_fu_1168_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal tmp_r1_fu_1004_p4 : STD_LOGIC_VECTOR (31 downto 0);
     signal tmp_r2_fu_1014_p4 : STD_LOGIC_VECTOR (31 downto 0);
     signal input_op_1_fu_1120_p4 : STD_LOGIC_VECTOR (31 downto 0);
@@ -891,7 +891,7 @@ begin
         ap_return_31 => grp_front_end_fu_698_ap_return_31,
         ap_return_32 => grp_front_end_fu_698_ap_return_32);
 
-    mul_32s_32s_32_1_1_U367 : component cpu_mul_32s_32s_32_1_1
+    mul_32s_32s_32_1_1_U364 : component cpu_mul_32s_32s_32_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -901,7 +901,7 @@ begin
     port map (
         din0 => tmp_r1_1_reg_1443,
         din1 => tmp_r2_1_reg_1448,
-        dout => mul_ln126_fu_1168_p2);
+        dout => mul_ln125_fu_1168_p2);
 
 
 
@@ -964,9 +964,9 @@ begin
                 if ((ap_const_boolean_1 = ap_condition_606)) then 
                     adders_result_value_0 <= ap_const_lv32_0;
                 elsif ((ap_const_boolean_1 = ap_condition_613)) then 
-                    adders_result_value_0 <= add_ln54_fu_1042_p2;
+                    adders_result_value_0 <= add_ln53_fu_1042_p2;
                 elsif (((input_op_fu_994_p4 = ap_const_lv32_3) and (tmp_nbreadreq_fu_480_p3 = ap_const_lv1_1))) then 
-                    adders_result_value_0 <= sub_ln58_fu_1030_p2;
+                    adders_result_value_0 <= sub_ln57_fu_1030_p2;
                 end if;
             end if; 
         end if;
@@ -977,7 +977,7 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
                 multipliers_busy_0_flag_0_reg_613 <= ap_const_lv1_0;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln124_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln123_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
                 multipliers_busy_0_flag_0_reg_613 <= ap_const_lv1_1;
             end if; 
         end if;
@@ -988,7 +988,7 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
                 multipliers_busy_0_loc_0_reg_629 <= multipliers_busy_0;
-            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln124_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
+            elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln123_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
                 multipliers_busy_0_loc_0_reg_629 <= ap_const_lv1_1;
             end if; 
         end if;
@@ -997,10 +997,10 @@ begin
     multipliers_result_value_0_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln124_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+            if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln123_fu_1156_p2 = ap_const_lv1_0) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
                 multipliers_result_value_0 <= ap_const_lv32_0;
             elsif ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-                multipliers_result_value_0 <= mul_ln126_fu_1168_p2;
+                multipliers_result_value_0 <= mul_ln125_fu_1168_p2;
             end if; 
         end if;
     end process;
@@ -1102,7 +1102,7 @@ begin
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, adder_to_front_end_full_n, multiplier_to_frontend_full_n, front_end_to_adder_empty_n, front_end_to_multiplier_empty_n, ap_CS_fsm_state4, ap_CS_fsm_state6, ap_CS_fsm_state3, tmp_nbreadreq_fu_480_p3, tmp_3_nbreadreq_fu_501_p3, ap_CS_fsm_state2, grp_front_end_fu_698_ap_done, ap_predicate_op74_write_state4, icmp_ln124_fu_1156_p2, ap_predicate_op112_write_state6)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, adder_to_front_end_full_n, multiplier_to_frontend_full_n, front_end_to_adder_empty_n, front_end_to_multiplier_empty_n, ap_CS_fsm_state4, ap_CS_fsm_state6, ap_CS_fsm_state3, tmp_nbreadreq_fu_480_p3, tmp_3_nbreadreq_fu_501_p3, ap_CS_fsm_state2, grp_front_end_fu_698_ap_done, ap_predicate_op74_write_state4, icmp_ln123_fu_1156_p2, ap_predicate_op112_write_state6)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -1124,9 +1124,9 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 end if;
             when ap_ST_fsm_state4 => 
-                if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln124_fu_1156_p2 = ap_const_lv1_1) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
+                if ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (icmp_ln123_fu_1156_p2 = ap_const_lv1_1) and (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
                     ap_NS_fsm <= ap_ST_fsm_state5;
-                elsif ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state4) and ((icmp_ln124_fu_1156_p2 = ap_const_lv1_0) or (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_0)))) then
+                elsif ((not((((ap_predicate_op74_write_state4 = ap_const_boolean_1) and (ap_const_logic_0 = adder_to_front_end_full_n)) or ((tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_1) and (front_end_to_multiplier_empty_n = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state4) and ((icmp_ln123_fu_1156_p2 = ap_const_lv1_0) or (tmp_3_nbreadreq_fu_501_p3 = ap_const_lv1_0)))) then
                     ap_NS_fsm <= ap_ST_fsm_state6;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state4;
@@ -1143,14 +1143,14 @@ begin
                 ap_NS_fsm <= "XXXXXX";
         end case;
     end process;
-    add_ln136_fu_1182_p2 <= std_logic_vector(unsigned(multipliers_counter) + unsigned(ap_const_lv32_1));
-    add_ln54_fu_1042_p2 <= std_logic_vector(unsigned(tmp_r1_fu_1004_p4) + unsigned(tmp_r2_fu_1014_p4));
-    add_ln68_fu_1064_p2 <= std_logic_vector(unsigned(adders_counter) + unsigned(ap_const_lv32_1));
+    add_ln135_fu_1182_p2 <= std_logic_vector(unsigned(multipliers_counter) + unsigned(ap_const_lv32_1));
+    add_ln53_fu_1042_p2 <= std_logic_vector(unsigned(tmp_r1_fu_1004_p4) + unsigned(tmp_r2_fu_1014_p4));
+    add_ln67_fu_1064_p2 <= std_logic_vector(unsigned(adders_counter) + unsigned(ap_const_lv32_1));
     adder_to_front_end_din <= (adders_result_value_0 & adders_result_src_0);
 
-    adder_to_front_end_o_blk_n_assign_proc : process(adder_to_front_end_full_n, ap_CS_fsm_state4, icmp_ln69_fu_1071_p2, adders_busy_0_loc_0_reg_541)
+    adder_to_front_end_o_blk_n_assign_proc : process(adder_to_front_end_full_n, ap_CS_fsm_state4, icmp_ln68_fu_1071_p2, adders_busy_0_loc_0_reg_541)
     begin
-        if (((icmp_ln69_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        if (((icmp_ln68_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             adder_to_front_end_o_blk_n <= adder_to_front_end_full_n;
         else 
             adder_to_front_end_o_blk_n <= ap_const_logic_1;
@@ -1240,11 +1240,11 @@ begin
     end process;
 
 
-    ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln69_fu_1071_p2, adders_busy_0_flag_0_reg_522, adders_busy_0_loc_0_reg_541)
+    ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln68_fu_1071_p2, adders_busy_0_flag_0_reg_522, adders_busy_0_loc_0_reg_541)
     begin
-        if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln69_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
+        if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln68_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
             ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 <= adders_busy_0_flag_0_reg_522;
-        elsif (((icmp_ln69_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        elsif (((icmp_ln68_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 <= ap_const_lv1_1;
         else 
             ap_phi_mux_adders_busy_0_flag_1_phi_fu_561_p6 <= "X";
@@ -1253,11 +1253,11 @@ begin
 
     ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 <= adders_busy_0_loc_0_reg_541;
 
-    ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln69_fu_1071_p2, adders_busy_0_loc_0_reg_541)
+    ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln68_fu_1071_p2, adders_busy_0_loc_0_reg_541)
     begin
-        if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln69_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
+        if ((((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln68_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
             ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 <= ap_const_lv1_1;
-        elsif (((icmp_ln69_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        elsif (((icmp_ln68_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 <= ap_const_lv1_0;
         else 
             ap_phi_mux_adders_busy_0_new_1_phi_fu_575_p6 <= "X";
@@ -1265,11 +1265,11 @@ begin
     end process;
 
 
-    ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln69_fu_1071_p2, adders_busy_0_loc_0_reg_541)
+    ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6_assign_proc : process(ap_CS_fsm_state4, ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8, icmp_ln68_fu_1071_p2, adders_busy_0_loc_0_reg_541)
     begin
         if (((ap_phi_mux_adders_busy_0_loc_0_phi_fu_545_p8 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 <= ap_const_lv1_0;
-        elsif ((((icmp_ln69_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln69_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
+        elsif ((((icmp_ln68_fu_1071_p2 = ap_const_lv1_0) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)) or ((icmp_ln68_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4)))) then 
             ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 <= ap_const_lv1_1;
         else 
             ap_phi_mux_adders_counter_flag_0_phi_fu_589_p6 <= "X";
@@ -1277,12 +1277,12 @@ begin
     end process;
 
 
-    ap_phi_mux_adders_counter_new_0_phi_fu_603_p6_assign_proc : process(ap_CS_fsm_state4, icmp_ln69_fu_1071_p2, adders_busy_0_loc_0_reg_541, add_ln68_fu_1064_p2)
+    ap_phi_mux_adders_counter_new_0_phi_fu_603_p6_assign_proc : process(ap_CS_fsm_state4, icmp_ln68_fu_1071_p2, adders_busy_0_loc_0_reg_541, add_ln67_fu_1064_p2)
     begin
         if (((ap_const_lv1_1 = adders_busy_0_loc_0_reg_541) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-            if ((icmp_ln69_fu_1071_p2 = ap_const_lv1_0)) then 
-                ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 <= add_ln68_fu_1064_p2;
-            elsif ((icmp_ln69_fu_1071_p2 = ap_const_lv1_1)) then 
+            if ((icmp_ln68_fu_1071_p2 = ap_const_lv1_0)) then 
+                ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 <= add_ln67_fu_1064_p2;
+            elsif ((icmp_ln68_fu_1071_p2 = ap_const_lv1_1)) then 
                 ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 <= ap_const_lv32_0;
             else 
                 ap_phi_mux_adders_counter_new_0_phi_fu_603_p6 <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -1293,11 +1293,11 @@ begin
     end process;
 
 
-    ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln137_fu_1189_p2, multipliers_busy_0_flag_0_reg_613, multipliers_busy_0_loc_0_reg_629)
+    ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln136_fu_1189_p2, multipliers_busy_0_flag_0_reg_613, multipliers_busy_0_loc_0_reg_629)
     begin
-        if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln137_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
+        if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln136_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
             ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 <= multipliers_busy_0_flag_0_reg_613;
-        elsif (((icmp_ln137_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
+        elsif (((icmp_ln136_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
             ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 <= ap_const_lv1_1;
         else 
             ap_phi_mux_multipliers_busy_0_flag_1_phi_fu_646_p6 <= "X";
@@ -1306,11 +1306,11 @@ begin
 
     ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 <= multipliers_busy_0_loc_0_reg_629;
 
-    ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln137_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
+    ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln136_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
     begin
-        if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln137_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
+        if ((((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln136_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
             ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 <= ap_const_lv1_1;
-        elsif (((icmp_ln137_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
+        elsif (((icmp_ln136_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
             ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 <= ap_const_lv1_0;
         else 
             ap_phi_mux_multipliers_busy_0_new_1_phi_fu_660_p6 <= "X";
@@ -1318,11 +1318,11 @@ begin
     end process;
 
 
-    ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln137_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
+    ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6_assign_proc : process(ap_CS_fsm_state6, ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6, icmp_ln136_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
     begin
         if (((ap_phi_mux_multipliers_busy_0_loc_0_phi_fu_633_p6 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
             ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 <= ap_const_lv1_0;
-        elsif ((((icmp_ln137_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln137_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
+        elsif ((((icmp_ln136_fu_1189_p2 = ap_const_lv1_0) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)) or ((icmp_ln136_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6)))) then 
             ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 <= ap_const_lv1_1;
         else 
             ap_phi_mux_multipliers_counter_flag_0_phi_fu_674_p6 <= "X";
@@ -1330,12 +1330,12 @@ begin
     end process;
 
 
-    ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6_assign_proc : process(ap_CS_fsm_state6, icmp_ln137_fu_1189_p2, multipliers_busy_0_loc_0_reg_629, add_ln136_fu_1182_p2)
+    ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6_assign_proc : process(ap_CS_fsm_state6, icmp_ln136_fu_1189_p2, multipliers_busy_0_loc_0_reg_629, add_ln135_fu_1182_p2)
     begin
         if (((multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then
-            if ((icmp_ln137_fu_1189_p2 = ap_const_lv1_0)) then 
-                ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 <= add_ln136_fu_1182_p2;
-            elsif ((icmp_ln137_fu_1189_p2 = ap_const_lv1_1)) then 
+            if ((icmp_ln136_fu_1189_p2 = ap_const_lv1_0)) then 
+                ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 <= add_ln135_fu_1182_p2;
+            elsif ((icmp_ln136_fu_1189_p2 = ap_const_lv1_1)) then 
                 ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 <= ap_const_lv32_0;
             else 
                 ap_phi_mux_multipliers_counter_new_0_phi_fu_688_p6 <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -1346,15 +1346,15 @@ begin
     end process;
 
 
-    ap_predicate_op112_write_state6_assign_proc : process(icmp_ln137_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
+    ap_predicate_op112_write_state6_assign_proc : process(icmp_ln136_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
     begin
-                ap_predicate_op112_write_state6 <= ((icmp_ln137_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1));
+                ap_predicate_op112_write_state6 <= ((icmp_ln136_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1));
     end process;
 
 
-    ap_predicate_op74_write_state4_assign_proc : process(icmp_ln69_fu_1071_p2, adders_busy_0_loc_0_reg_541)
+    ap_predicate_op74_write_state4_assign_proc : process(icmp_ln68_fu_1071_p2, adders_busy_0_loc_0_reg_541)
     begin
-                ap_predicate_op74_write_state4 <= ((icmp_ln69_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541));
+                ap_predicate_op74_write_state4 <= ((icmp_ln68_fu_1071_p2 = ap_const_lv1_1) and (ap_const_lv1_1 = adders_busy_0_loc_0_reg_541));
     end process;
 
 
@@ -1463,16 +1463,16 @@ begin
     end process;
 
     grp_front_end_fu_698_ap_start <= grp_front_end_fu_698_ap_start_reg;
-    icmp_ln124_fu_1156_p2 <= "1" when (input_op_1_fu_1120_p4 = ap_const_lv32_4) else "0";
-    icmp_ln137_fu_1189_p2 <= "1" when (add_ln136_fu_1182_p2 = ap_const_lv32_3) else "0";
-    icmp_ln69_fu_1071_p2 <= "1" when (adders_counter = ap_const_lv32_0) else "0";
+    icmp_ln123_fu_1156_p2 <= "1" when (input_op_1_fu_1120_p4 = ap_const_lv32_4) else "0";
+    icmp_ln136_fu_1189_p2 <= "1" when (add_ln135_fu_1182_p2 = ap_const_lv32_3) else "0";
+    icmp_ln68_fu_1071_p2 <= "1" when (adders_counter = ap_const_lv32_0) else "0";
     input_op_1_fu_1120_p4 <= front_end_to_multiplier_dout(95 downto 64);
     input_op_fu_994_p4 <= front_end_to_adder_dout(95 downto 64);
     multiplier_to_frontend_din <= (multipliers_result_value_0 & multipliers_result_src_0);
 
-    multiplier_to_frontend_o_blk_n_assign_proc : process(multiplier_to_frontend_full_n, ap_CS_fsm_state6, icmp_ln137_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
+    multiplier_to_frontend_o_blk_n_assign_proc : process(multiplier_to_frontend_full_n, ap_CS_fsm_state6, icmp_ln136_fu_1189_p2, multipliers_busy_0_loc_0_reg_629)
     begin
-        if (((icmp_ln137_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
+        if (((icmp_ln136_fu_1189_p2 = ap_const_lv1_1) and (multipliers_busy_0_loc_0_reg_629 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state6))) then 
             multiplier_to_frontend_o_blk_n <= multiplier_to_frontend_full_n;
         else 
             multiplier_to_frontend_o_blk_n <= ap_const_logic_1;
@@ -1851,7 +1851,7 @@ begin
     end process;
 
     rf_reg_stat_9_constprop_o_ap_vld <= grp_front_end_fu_698_rf_reg_stat_9_constprop_o_ap_vld;
-    sub_ln58_fu_1030_p2 <= std_logic_vector(unsigned(tmp_r1_fu_1004_p4) - unsigned(tmp_r2_fu_1014_p4));
+    sub_ln57_fu_1030_p2 <= std_logic_vector(unsigned(tmp_r1_fu_1004_p4) - unsigned(tmp_r2_fu_1014_p4));
     tmp_3_nbreadreq_fu_501_p3 <= (0=>(front_end_to_multiplier_empty_n), others=>'-');
     tmp_nbreadreq_fu_480_p3 <= (0=>(front_end_to_adder_empty_n), others=>'-');
     tmp_r1_fu_1004_p4 <= front_end_to_adder_dout(127 downto 96);
