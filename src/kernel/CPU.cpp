@@ -26,7 +26,7 @@ void front_end (instr_t instruction_i, bool &success_o, Register_file &rf, func_
 }
 
 void every_cycle (instr_t instruction_i, bool &success_o, Register_file &rf) {
-#pragma HLS DATAFLOW
+//#pragma HLS DATAFLOW
     static Adders adders;
     static Multipliers multipliers;
     static res_sta_assign_task_stream_t front_end_to_adder("stream_to_adder"), front_end_to_multiplier("stream_to_multiplier");
