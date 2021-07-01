@@ -14,7 +14,6 @@
 !LICENSE
 
 ## project share
-!vivado.md
 !final-project-hls/
 !final-project-hls/solution*
 !final-project-hls/solution*/directives.tcl
