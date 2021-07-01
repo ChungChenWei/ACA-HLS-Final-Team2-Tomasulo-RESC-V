@@ -36,8 +36,10 @@ int main () {
     }
 
     for (int i = 0; i < REGISTER_NUM; ++i) {
-        if (final_register_file[i].int_data != correct_final_register_file[i].int_data)
+        if (final_register_file[i].int_data != correct_final_register_file[i].int_data) {
+            std::cout << "reg x" << i << " wrong" << std::endl;
             return 1;
+        }
     }
 
     return 0;

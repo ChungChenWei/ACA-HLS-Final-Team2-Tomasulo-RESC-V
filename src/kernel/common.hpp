@@ -5,7 +5,7 @@
 #include "hls_stream.h"
 
 // CPU related
-const int MAX_CYCLE_NUM = 40;
+const int MAX_CYCLE_NUM = 64;
 union data_t {
     uint32_t int_data; // TODO
     float float_data; // TODO: use ap_fixed
@@ -13,7 +13,7 @@ union data_t {
 const int REGISTER_NUM = 32;
 
 // instruction memory related
-const int INSTR_MEM_SIZE = 16; // TODO: tmp
+const int INSTR_MEM_SIZE = 64; // TODO: tmp
 typedef uint32_t instr_t;
 typedef uint32_t RISCV_code_t;
 
