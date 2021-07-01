@@ -45,15 +45,18 @@ void cpu (instr_t instruction_memory_i[INSTR_MEM_SIZE], data_t final_register_fi
     int cycle = 0;
     unsigned PC = 0;
 
-    while (PC < INSTR_MEM_SIZE && cycle < MAX_CYCLE_NUM) {
+    while (cycle < MAX_CYCLE_NUM) {
 #pragma HLS PIPELINE off
+
+        instr_t instr = (PC >= INSTR_MEM_SIZE) ? 0 : instruction_memory_i[PC];
+
 #ifndef __SYNTHESIS__
         std::cout << " # cycle = " << cycle << " , PC = " << PC << std::endl;
-        std::cout << "    intruction :  " << instruction_memory_i[PC] << std::endl;
+        std::cout << "    intruction :  " << instr << std::endl;
 #endif
 
         bool success = true;
-        every_cycle(instruction_memory_i[PC], success, rf);
+        every_cycle(instr, success, rf);
 
         cycle += 1;
         if (success) {
