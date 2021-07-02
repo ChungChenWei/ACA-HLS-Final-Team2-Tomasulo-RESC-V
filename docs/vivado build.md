@@ -7,11 +7,11 @@
 
 ## Create Block Design
 
-- `Settings` -> `IP` -> `Repository` 加入 `CPU-IP`
+- `Settings` -> `IP` -> `Repository` 加入 `cpu.zip` unzip 之後的資料夾
 - 加入 `cpu`、`ZYNQ7 Processing System`
 - `Run Block Automation`、`Run Connection Automation`
 
-![image-20210613011438199](C:\Users\ab121\AppData\Roaming\Typora\typora-user-images\image-20210613011438199.png)
+![block_design](https://i.imgur.com/yON0NBA.png)
 
 ## Create HDL wrapper
 

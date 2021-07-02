@@ -18,7 +18,6 @@ add_files ../../src/kernel/functional_unit.cpp
 add_files ../../src/kernel/common.hpp
 add_files ../../src/kernel/CPU.hpp
 add_files ../../src/kernel/CPU.cpp
-add_files ../../src/kernel/CDB.hpp
 add_files -tb ../../src/kernel/testbench.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
 set_part {xc7z020-clg400-1}
