@@ -33,5 +33,5 @@ We are using `Vitits HLS` to implement a RISC-V CPU with Tomasulo Algorithm and 
 
 **Bitstream**
 
-- follow [vivado build](https://github.com/ChungChenWei/ACA-HLS-Final-Team2-Tomasulo-RISC-V/blob/master/docs/vivado build.md) guide
+- follow [vivado build](./docs/vivado_build.md) guide
 
